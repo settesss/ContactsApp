@@ -16,5 +16,15 @@ namespace ContactsApp.View
         {
             InitializeComponent();
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

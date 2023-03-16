@@ -69,6 +69,7 @@
             this.OKButton.TabIndex = 21;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = false;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // TitleLabel
             // 
@@ -205,6 +206,8 @@
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.AboutForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AboutForm_KeyDown);
             this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

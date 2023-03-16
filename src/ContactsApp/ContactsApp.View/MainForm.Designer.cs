@@ -121,6 +121,7 @@
             this.EditUserButton.Size = new System.Drawing.Size(50, 46);
             this.EditUserButton.TabIndex = 3;
             this.EditUserButton.UseVisualStyleBackColor = true;
+            this.EditUserButton.Click += new System.EventHandler(this.EditUserButton_Click);
             // 
             // AddUserButton
             // 
@@ -240,6 +241,7 @@
             this.NotificationCloseButton.Size = new System.Drawing.Size(35, 35);
             this.NotificationCloseButton.TabIndex = 0;
             this.NotificationCloseButton.UseVisualStyleBackColor = true;
+            this.NotificationCloseButton.Click += new System.EventHandler(this.NotificationCloseButton_Click);
             // 
             // VKTextBox
             // 
@@ -291,7 +293,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EmailTextBox.Location = new System.Drawing.Point(132, 84);
-            this.EmailTextBox.MinimumSize = new System.Drawing.Size(190, 2);
+            this.EmailTextBox.MinimumSize = new System.Drawing.Size(190, 22);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(440, 22);
             this.EmailTextBox.TabIndex = 4;
@@ -313,7 +315,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FullNameTextBox.Location = new System.Drawing.Point(132, 28);
-            this.FullNameTextBox.MinimumSize = new System.Drawing.Size(190, 2);
+            this.FullNameTextBox.MinimumSize = new System.Drawing.Size(190, 22);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(440, 22);
             this.FullNameTextBox.TabIndex = 2;

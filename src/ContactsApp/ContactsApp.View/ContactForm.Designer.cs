@@ -199,6 +199,7 @@
             this.OKButton.TabIndex = 21;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = false;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // CancelButton
             // 
@@ -213,6 +214,7 @@
             this.CancelButton.TabIndex = 20;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ContactForm
             // 

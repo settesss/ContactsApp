@@ -18,6 +18,11 @@ namespace ContactsApp.View
             InitializeComponent();
         }
 
+        private void AboutForm_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+        }
+
         private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/settesss");
@@ -26,6 +31,19 @@ namespace ContactsApp.View
         private void PictureRightsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://icons8.com");
+        }
+
+        private void AboutForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

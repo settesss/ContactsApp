@@ -36,5 +36,19 @@ namespace ContactsApp.View
                 OpenAboutForm.Show();
             }
         }
+
+        private void EditUserButton_Click(object sender, EventArgs e)
+        {
+            ContactForm EditContactForm = new ContactForm();
+            EditContactForm.Show();
+        }
+
+        private void NotificationCloseButton_Click(object sender, EventArgs e)
+        {
+            NotificationCloseButton.Visible = false;
+            NotificationPanel.Visible = false;
+            NotificationBirthLabel.Visible = false;
+            NotificationPictureBox.Visible = false;
+        }
     }
 }
