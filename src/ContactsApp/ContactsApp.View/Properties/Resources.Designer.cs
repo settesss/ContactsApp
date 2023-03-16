@@ -73,6 +73,16 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_photo_32x32_gray {
+            get {
+                object obj = ResourceManager.GetObject("add_photo_32x32_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_32x32 {
             get {
                 object obj = ResourceManager.GetObject("close_32x32", resourceCulture);
@@ -106,6 +116,16 @@ namespace ContactsApp.View.Properties {
         internal static System.Drawing.Bitmap info_48x48_empty {
             get {
                 object obj = ResourceManager.GetObject("info_48x48-empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_placeholder_100x100 {
+            get {
+                object obj = ResourceManager.GetObject("photo_placeholder_100x100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
