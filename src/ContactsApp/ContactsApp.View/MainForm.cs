@@ -17,15 +17,24 @@ namespace ContactsApp.View
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-
+            this.KeyPreview = true;
         }
 
         private void AddUserButton_Click(object sender, EventArgs e)
         {
             ContactForm AddContactForm = new ContactForm();
             AddContactForm.Show();
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.F1)
+            {
+                AboutForm OpenAboutForm = new AboutForm();
+                OpenAboutForm.Show();
+            }
         }
     }
 }

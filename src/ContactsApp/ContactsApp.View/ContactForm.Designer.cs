@@ -41,8 +41,8 @@
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FullNameTextBox.Location = new System.Drawing.Point(128, 31);
-            this.FullNameTextBox.MinimumSize = new System.Drawing.Size(190, 0);
+            this.FullNameTextBox.MinimumSize = new System.Drawing.Size(190, 2);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(437, 22);
             this.FullNameTextBox.TabIndex = 3;
@@ -104,7 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EmailTextBox.Location = new System.Drawing.Point(128, 89);
-            this.EmailTextBox.MinimumSize = new System.Drawing.Size(190, 0);
+            this.EmailTextBox.MinimumSize = new System.Drawing.Size(190, 2);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(437, 22);
             this.EmailTextBox.TabIndex = 5;
@@ -125,7 +125,7 @@
             this.PhoneMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PhoneMaskedTextBox.Location = new System.Drawing.Point(128, 156);
             this.PhoneMaskedTextBox.Mask = "+7 (999) 000-00-00";
-            this.PhoneMaskedTextBox.MaximumSize = new System.Drawing.Size(270, 0);
+            this.PhoneMaskedTextBox.MaximumSize = new System.Drawing.Size(270, 2);
             this.PhoneMaskedTextBox.MinimumSize = new System.Drawing.Size(190, 22);
             this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
             this.PhoneMaskedTextBox.Size = new System.Drawing.Size(190, 22);
@@ -145,7 +145,7 @@
             this.BirthDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BirthDateDateTimePicker.Location = new System.Drawing.Point(128, 216);
-            this.BirthDateDateTimePicker.MaximumSize = new System.Drawing.Size(270, 0);
+            this.BirthDateDateTimePicker.MaximumSize = new System.Drawing.Size(270, 4);
             this.BirthDateDateTimePicker.MinimumSize = new System.Drawing.Size(190, 22);
             this.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
             this.BirthDateDateTimePicker.Size = new System.Drawing.Size(190, 22);
@@ -157,7 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VKTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.VKTextBox.Location = new System.Drawing.Point(128, 274);
-            this.VKTextBox.MaximumSize = new System.Drawing.Size(270, 0);
+            this.VKTextBox.MaximumSize = new System.Drawing.Size(270, 2);
             this.VKTextBox.MinimumSize = new System.Drawing.Size(190, 22);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(190, 22);
@@ -185,20 +185,6 @@
             this.ButtonsPanel.Size = new System.Drawing.Size(577, 59);
             this.ButtonsPanel.TabIndex = 19;
             // 
-            // CancelButton
-            // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.BackColor = System.Drawing.Color.LightGray;
-            this.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Location = new System.Drawing.Point(474, 16);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(91, 26);
-            this.CancelButton.TabIndex = 20;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = false;
-            // 
             // OKButton
             // 
             this.OKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -213,6 +199,20 @@
             this.OKButton.TabIndex = 21;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = false;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton.BackColor = System.Drawing.Color.LightGray;
+            this.CancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Location = new System.Drawing.Point(474, 16);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(91, 26);
+            this.CancelButton.TabIndex = 20;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = false;
             // 
             // ContactForm
             // 
@@ -235,6 +235,7 @@
             this.MinimumSize = new System.Drawing.Size(340, 407);
             this.Name = "ContactForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
             this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
