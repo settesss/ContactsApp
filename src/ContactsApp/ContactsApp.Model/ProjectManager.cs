@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactsApp.Model
+namespace ContactsApp.View
 {
-    public class Class1
+    internal class ProjectManager
     {
+
     }
 }
