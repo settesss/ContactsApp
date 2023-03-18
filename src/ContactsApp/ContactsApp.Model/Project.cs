@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ContactsApp.View
+namespace ContactsApp.Model
 {
     internal class Project
     {
