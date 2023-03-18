@@ -9,19 +9,16 @@ namespace ContactsApp.Model
 {
     internal class Project
     {
-        private List<Model.Contact> contacts;
+        private List<Model.Contact> _contacts;
 
         public Project()
         {
-            contacts = new List<Model.Contact>();
+            _contacts = new List<Model.Contact>();
         }
 
-        public List<Model.Contact> GetContacts()
-        {
-            return contacts;
-        }
+        public List<Model.Contact> Contacts { get { return _contacts; } }
 
-        public ListBox FullNameSort(ListBox listBox, string contactName)
+        public ListBox SortContactsByFullName(ListBox listBox, string contactName)
         {
             ListBox listBoxSorted = new ListBox();
             for (int i = 0; i < listBox.Items.Count; i++)
@@ -34,7 +31,7 @@ namespace ContactsApp.Model
             return listBoxSorted;
         }
 
-        public ListBox SubstringSort(ListBox listBox, string substring) 
+        public ListBox SortContactsBySubstring(ListBox listBox, string substring) 
         { 
             ListBox listBoxSorted = new ListBox();
             for (int i = 0; i < listBox.Items.Count; i++)
@@ -47,7 +44,7 @@ namespace ContactsApp.Model
             return listBoxSorted;
         }
 
-        public string BirthdaySort(ListBox listBox, List<Model.Contact> contacts)
+        public string GetContactsOfBirthdayPeople(ListBox listBox, List<Model.Contact> contacts)
         {
             string birthdayList = "";
             for (int i = 0; i < listBox.Items.Count; i++)
