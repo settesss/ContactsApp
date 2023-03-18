@@ -9,28 +9,29 @@ namespace ContactsApp.Model
 {
     internal class Contact
     {
-        private string fullName;
-        private string email;
-        private string phoneNumber;
-        private DateTime birthDate;
-        private string VKid;
+        private string _fullName;
+        private string _email;
+        private string _phoneNumber;
+        private DateTime _birthDate;
+        private string _vkId;
 
         public Contact() { }
 
         public string FullName
         {
-            get { return fullName; }
+            get { return _fullName; }
             set 
             {
                 if (value.Length <= 100)
                 {
                     /*Непроработанный до конца метод, работает только с первой буквой*/
                     value = value[0].ToString().ToUpper() + value.Substring(1);
-                    fullName = value;
+                    _fullName = value;
                 }
                 else
                 {
-                    string exception = "Your name '" + value + "' is too long. Try to enter shorter, please.";
+                    string exception = "Your name '" + value + "' is too long. " +
+                        "Try to enter shorter, please.";
                     throw new ArgumentOutOfRangeException(exception);
                 }
             }
@@ -38,16 +39,17 @@ namespace ContactsApp.Model
         
         public string Email
         {
-            get { return email; }
+            get { return _email; }
             set
             {
                 if (value.Length <= 100)
                 {
-                    email = value;
+                    _email = value;
                 }
                 else
                 {
-                    string exception = "E-mail '" + value + "' is too long. Try to enter shorter, please.";
+                    string exception = "E-mail '" + value + "' is too long. " +
+                        "Try to enter shorter, please.";
                     throw new ArgumentOutOfRangeException(exception);
                 }
             }
@@ -55,23 +57,23 @@ namespace ContactsApp.Model
 
         public string PhoneNumber
         {
-            get { return phoneNumber; }
+            get { return _phoneNumber; }
             set
             {
-                phoneNumber = value;
+                _phoneNumber = value;
             }
         }
 
         public DateTime BirthDate
         {
-            get { return birthDate; }
+            get { return _birthDate; }
             set
             {
                 DateTime minDate = new DateTime(1900, 01, 01);
                 DateTime maxDate = DateTime.Now;
                 if (value > minDate && value <= maxDate)
                 {
-                    birthDate = value;
+                    _birthDate = value;
                 }
                 else
                 {
@@ -82,16 +84,17 @@ namespace ContactsApp.Model
 
         public string VKID
         {
-            get { return VKid; }
+            get { return _vkId; }
             set
             {
                 if (value.Length <= 50)
                 {
-                    VKid = value;
+                    _vkId = value;
                 }
                 else
                 {
-                    string exception = "VK-ID '" + value + "' is too long. Try to enter shorter, please.";
+                    string exception = "VK-ID '" + value + "' is too long. " +
+                        "Try to enter shorter, please.";
                     throw new ArgumentOutOfRangeException(exception);
                 }
             }
@@ -99,16 +102,16 @@ namespace ContactsApp.Model
 
         public Contact(string name, string phone)
         {
-            fullName = name;
-            phoneNumber = phone;
+            _fullName = name;
+            _phoneNumber = phone;
         }
 
-        public Contact(string name, string mail, string phone, DateTime birth, string vk) : this(name, phone)
+        public Contact(string name, string mail, string phone, DateTime birth, string vk)
+            : this(name, phone)
         {
-            email = mail;
-            birthDate = birth;
-            VKid = vk;
+            _email = mail;
+            _birthDate = birth;
+            _vkId = vk;
         }
-
     }
 }
