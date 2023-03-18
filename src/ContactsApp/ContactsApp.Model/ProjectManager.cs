@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactsApp.View
+namespace ContactsApp.Model
 {
     internal class ProjectManager
     {
