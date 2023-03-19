@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает менеджер проекта.
+    /// </summary>
     internal class ProjectManager
     {
 

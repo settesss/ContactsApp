@@ -7,16 +7,39 @@ using System.Windows.Forms;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает контакт телефонной книги.
+    /// </summary>
     internal class Contact
     {
+        /// <summary>
+        /// Полное имя.
+        /// </summary>
         private string _fullName;
+
+        /// <summary>
+        /// Адрес электронной почты.
+        /// </summary>
         private string _email;
+
+        /// <summary>
+        /// Номер телефона.
+        /// </summary>
         private string _phoneNumber;
+
+        /// <summary>
+        /// Дата рождения.
+        /// </summary>
         private DateTime _birthDate;
+        
+        /// <summary>
+        /// Уникальный идентификатор пользователя ВКонтакте.
+        /// </summary>
         private string _vkId;
 
-        public Contact() { }
-
+        /// <summary>
+        /// Возвращает или задает полное имя.
+        /// </summary>
         public string FullName
         {
             get { return _fullName; }
@@ -37,6 +60,9 @@ namespace ContactsApp.Model
             }
         }
         
+        /// <summary>
+        /// Возвращает или задает адрес электронной почты.
+        /// </summary>
         public string Email
         {
             get { return _email; }
@@ -55,6 +81,9 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает номер телефона.
+        /// </summary>
         public string PhoneNumber
         {
             get { return _phoneNumber; }
@@ -64,6 +93,9 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает дату рождения.
+        /// </summary>
         public DateTime BirthDate
         {
             get { return _birthDate; }
@@ -82,6 +114,9 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// Возвращает или задает уникальный идентификатор пользователя ВКонтакте.
+        /// </summary>
         public string VKID
         {
             get { return _vkId; }
@@ -100,16 +135,14 @@ namespace ContactsApp.Model
             }
         }
 
-        public Contact(string name, string phone)
+        /// <summary>
+        /// Создает экземпляр <see cref="Contact">.
+        /// </summary>
+        public Contact(string name, string mail, string phone, DateTime birth, string vk)
         {
             _fullName = name;
-            _phoneNumber = phone;
-        }
-
-        public Contact(string name, string mail, string phone, DateTime birth, string vk)
-            : this(name, phone)
-        {
             _email = mail;
+            _phoneNumber = phone;
             _birthDate = birth;
             _vkId = vk;
         }
