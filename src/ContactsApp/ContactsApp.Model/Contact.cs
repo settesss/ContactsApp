@@ -10,7 +10,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает контакт телефонной книги.
     /// </summary>
-    internal class Contact
+    public class Contact
     {
         /// <summary>
         /// Полное имя.
@@ -31,11 +31,16 @@ namespace ContactsApp.Model
         /// Дата рождения.
         /// </summary>
         private DateTime _birthDate;
-        
+
         /// <summary>
-        /// Уникальный идентификатор пользователя ВКонтакте.
+        /// Уникальный идентификатор пользователя VK.
         /// </summary>
         private string _vkId;
+
+        /// <summary>
+        /// Создает пустой экземпляр <see cref="Contact">.
+        /// </summary>
+        public Contact() { }
 
         /// <summary>
         /// Возвращает или задает полное имя.
@@ -115,7 +120,7 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// Возвращает или задает уникальный идентификатор пользователя ВКонтакте.
+        /// Возвращает или задает уникальный идентификатор пользователя VK.
         /// </summary>
         public string VKID
         {

@@ -12,14 +12,10 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
-        public ContactForm(/*ListBox listBox*/)
+        public ContactForm()
         {
             InitializeComponent();
-            /*this.listBox = listBox;*/
         }
-        /*Создание поля типа ListBox для передачи в него информации о новом пользователе*/
-
-        /*ListBox listBox;*/
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
@@ -28,18 +24,6 @@ namespace ContactsApp.View
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            /*Добавление в список и вывод на MainForm*/
-
-            /*Model.Contact user = new Model.Contact();
-            Project list = new Project();
-            user.FullName = FullNameTextBox.Text;
-            user.Email = EmailTextBox.Text;
-            user.PhoneNumber = PhoneMaskedTextBox.Text;
-            user.BirthDate = BirthDateDateTimePicker.Value;
-            user.VKID = VKTextBox.Text;
-            list.contacts.Add(user);
-            listBox.Items.Add(user.FullName);*/
-
             Close();
         }
     }
