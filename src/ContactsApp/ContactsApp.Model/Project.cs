@@ -10,12 +10,12 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает проект.
     /// </summary>
-    internal class Project
+    public class Project
     {
         /// <summary>
         /// Возвращает или задаёт список контактов.
         /// </summary>
-        public List<Model.Contact> Contacts {get; set;} = new List<Model.Contact>();
+        public List<Contact> Contacts {get; set;} = new List<Contact>();
 
         /// <summary>
         /// Сортирует контакты по полному имени и возвращает отсортированный список.
@@ -53,7 +53,7 @@ namespace ContactsApp.Model
         /// Ищет контакты людей, у которых сегодня день рождения, и возвращает строку 
         /// с объединенными контактами.
         /// </summary>
-        public string FindContactsOfBirthdayPeople(ListBox listBox, List<Model.Contact> contacts)
+        public string FindContactsOfBirthdayPeople(ListBox listBox, List<Contact> contacts)
         {
             string birthdayList = "";
             for (int i = 0; i < listBox.Items.Count; i++)

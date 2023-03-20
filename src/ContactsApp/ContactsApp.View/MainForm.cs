@@ -3,37 +3,141 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContactsApp.View
 {
+    /// <summary>
+    /// Описывает главную форму.
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Проект.
+        /// </summary>
+        private Model.Project _project = new Model.Project();
+
+        /// <summary>
+        /// Массив полных имен.
+        /// </summary>
+        private string[] _names = { "никита", "артем", "илья", "мария", "анастасия", "елена" };
+
+        /// <summary>
+        /// Массив адресов электронной почты.
+        /// </summary>
+        private string[] _mails = { 
+            "lola2012@gmail.com", 
+            "akiraISdead@mail.ru", 
+            "bubochka1488@bk.ru", 
+            "booker_pooker@gmail.com", 
+            "doglover@gmail.com", 
+            "pautinka@gmail.com" 
+        };
+
+        /// <summary>
+        /// Массив номеров телефона.
+        /// </summary>
+        private string[] _numbers = { 
+            "9069778977", 
+            "9022278977", 
+            "9232211977", 
+            "9069772211", 
+            "9069771488", 
+            "9033378977" 
+        };
+
+        /// <summary>
+        /// Массив дат рождения.
+        /// </summary>
+        private DateTime[] _dates = { 
+            new DateTime(1980, 02, 12), 
+            new DateTime(1956, 12, 27), 
+            new DateTime(1976, 05, 14) 
+        };
+
+        /// <summary>
+        /// Массив уникальных идентификаторов пользователей VK.
+        /// </summary>
+        private string[] _ids = { 
+            "vk.com/locker", 
+            "vk.com/chzh", 
+            "vk.com/pooker", 
+            "vk.com/mikrochel", 
+            "vk.com/sadist", 
+            "vk.com/maria-ra" 
+        };
+
+        /// <summary>
+        /// Очищает все элементы ListBox и возвращает обновленный список контактов.
+        /// </summary>
+        private ListBox UpdateListBox()
+        {
+            UsersListBox.Items.Clear();
+            for (int i = 0; i < _project.Contacts.Count; i++)
+            {
+                UsersListBox.Items.Add(_project.Contacts[i].FullName);
+            }
+            return UsersListBox;
+        }
+
+        /// <summary>
+        /// Добавляет новый объект контакта.
+        /// </summary>
+        private void AddContact()
+        {
+            Model.Contact user = new Model.Contact();
+            user.FullName = _names[new Random().Next(0, _names.Length)];
+            user.Email = _mails[new Random().Next(0, _mails.Length)];
+            user.PhoneNumber = _numbers[new Random().Next(0, _numbers.Length)];
+            user.BirthDate = _dates[new Random().Next(0, _dates.Length)];
+            user.VKID = _ids[new Random().Next(0, _ids.Length)];
+            _project.Contacts.Add(user);
+        }
+
+        /// <summary>
+        /// Строит пользовательский интерфейс в MainForm.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Загружает форму MainForm.
+        /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.KeyPreview = true;
+            KeyPreview = true;
         }
 
+        /// <summary>
+        /// Открывает форму ContactForm и добавляет контакт (пока что костыльно).
+        /// </summary>
         private void AddUserButton_Click(object sender, EventArgs e)
         {
-            ContactForm AddContactForm = new ContactForm(/*this.UsersListBox*/);
+            ContactForm AddContactForm = new ContactForm();
             AddContactForm.Show();
+            AddContact();
+            UpdateListBox();
         }
 
+        /// <summary>
+        /// Открывает форму ContactForm.
+        /// </summary>
         private void EditUserButton_Click(object sender, EventArgs e)
         {
-            ContactForm EditContactForm = new ContactForm(/*this.UsersListBox*/);
+            ContactForm EditContactForm = new ContactForm();
             EditContactForm.Show();
         }
 
+        /// <summary>
+        /// Открывает форму AboutForm нажатием F1.
+        /// </summary>
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.F1)
@@ -41,24 +145,11 @@ namespace ContactsApp.View
                 AboutForm OpenAboutForm = new AboutForm();
                 OpenAboutForm.Show();
             }
-            /*if (e.KeyData == Keys.F2)
-            {
-                DateTime birthDate = new DateTime(2023, 03, 18);
-                DateTime date = new DateTime(2022, 04, 11);
-                Project pr = new Project();
-                Model.Contact user1 = new Model.Contact("Nikita", "", "", date, "");
-                Model.Contact user2 = new Model.Contact("Artem", "", "", birthDate, "");
-                Model.Contact user3 = new Model.Contact("Maxim", "", "", birthDate, "");
-                UsersListBox.Items.Add(user1.FullName);
-                UsersListBox.Items.Add(user2.FullName);
-                UsersListBox.Items.Add(user3.FullName);
-                pr.contacts.Add(user1);
-                pr.contacts.Add(user2);
-                pr.contacts.Add(user3);
-                pr.FullNameSort(UsersListBox, "Nikita");
-            }*/
         }
 
+        /// <summary>
+        /// "Закрывает" уведомление о днях рождения.
+        /// </summary>
         private void NotificationCloseButton_Click(object sender, EventArgs e)
         {
             NotificationCloseButton.Visible = false;
