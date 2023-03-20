@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.View", "ContactsApp.View\ContactsApp.View.csproj", "{444118AD-9A22-4804-87C6-F7783AD927F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model", "ContactsApp.Model\ContactsApp.Model.csproj", "{00DCCBFE-FCE9-40A4-B24E-7760C7EB7802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{444118AD-9A22-4804-87C6-F7783AD927F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444118AD-9A22-4804-87C6-F7783AD927F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444118AD-9A22-4804-87C6-F7783AD927F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00DCCBFE-FCE9-40A4-B24E-7760C7EB7802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00DCCBFE-FCE9-40A4-B24E-7760C7EB7802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00DCCBFE-FCE9-40A4-B24E-7760C7EB7802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00DCCBFE-FCE9-40A4-B24E-7760C7EB7802}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
