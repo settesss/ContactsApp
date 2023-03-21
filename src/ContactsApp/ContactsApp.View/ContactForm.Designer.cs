@@ -234,6 +234,7 @@
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.PhotoButton);
             this.Controls.Add(this.UserPictureBox);
+            this.MaximumSize = new System.Drawing.Size(595, 439);
             this.MinimumSize = new System.Drawing.Size(340, 407);
             this.Name = "ContactForm";
             this.ShowIcon = false;

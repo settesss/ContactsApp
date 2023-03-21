@@ -202,6 +202,7 @@
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.ButtonsPanel);
+            this.MaximumSize = new System.Drawing.Size(635, 504);
             this.MinimumSize = new System.Drawing.Size(400, 450);
             this.Name = "AboutForm";
             this.ShowIcon = false;
