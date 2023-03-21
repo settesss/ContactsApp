@@ -109,6 +109,7 @@
             this.DeleteUserButton.Size = new System.Drawing.Size(50, 46);
             this.DeleteUserButton.TabIndex = 4;
             this.DeleteUserButton.UseVisualStyleBackColor = true;
+            this.DeleteUserButton.Click += new System.EventHandler(this.DeleteUserButton_Click);
             // 
             // EditUserButton
             // 
@@ -150,6 +151,7 @@
             this.UsersListBox.Name = "UsersListBox";
             this.UsersListBox.Size = new System.Drawing.Size(263, 402);
             this.UsersListBox.TabIndex = 2;
+            this.UsersListBox.SelectedIndexChanged += new System.EventHandler(this.UsersListBox_SelectedIndexChanged);
             // 
             // FindTextBox
             // 
@@ -370,6 +372,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContactsApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.SplitContainer.Panel1.ResumeLayout(false);

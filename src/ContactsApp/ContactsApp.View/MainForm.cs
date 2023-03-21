@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Management.Instrumentation;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -73,7 +74,7 @@ namespace ContactsApp.View
         };
 
         /// <summary>
-        /// Очищает все элементы ListBox и возвращает обновленный список контактов.
+        /// Очищает все элементы ListBox, возвращает обновленный список контактов.
         /// </summary>
         private ListBox UpdateListBox()
         {
@@ -83,6 +84,31 @@ namespace ContactsApp.View
                 UsersListBox.Items.Add(_project.Contacts[i].FullName);
             }
             return UsersListBox;
+        }
+
+        /// <summary>
+        /// Получает объект по индексу из поля _project, заполняет данные 
+        /// на правой панели MainForm.
+        /// </summary>
+        private void UpdateSelectedContact(int index)
+        {
+            FullNameTextBox.Text = _project.Contacts[index].FullName;
+            EmailTextBox.Text = _project.Contacts[index].Email;
+            PhoneMaskedTextBox.Text = _project.Contacts[index].PhoneNumber;
+            BirthDateMaskedTextBox.Text = _project.Contacts[index].BirthDate.ToString();
+            VKTextBox.Text = _project.Contacts[index].VKID;
+        }
+
+        /// <summary>
+        /// Очищает все элементы управления на правой панели MainForm.
+        /// </summary>
+        private void ClearSelectedContact()
+        {
+            FullNameTextBox.Clear();
+            EmailTextBox.Clear();
+            PhoneMaskedTextBox.Clear();
+            BirthDateMaskedTextBox.Clear();
+            VKTextBox.Clear();
         }
 
         /// <summary>
@@ -97,6 +123,31 @@ namespace ContactsApp.View
             user.BirthDate = _dates[new Random().Next(0, _dates.Length)];
             user.VKID = _ids[new Random().Next(0, _ids.Length)];
             _project.Contacts.Add(user);
+        }
+
+        /// <summary>
+        /// Удаляет объект контакта, вызывает форму подтверждения.
+        /// </summary>
+        private void RemoveContact(int index)
+        {
+            if (index == -1)
+            {
+                return;
+            }
+            else
+            {
+                var result = MessageBox.Show("Do you really want to remove "
+                + _project.Contacts[index].FullName + "?",
+                "Deletion message:", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    _project.Contacts.RemoveAt(index);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
         }
 
         /// <summary>
@@ -116,7 +167,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Открывает форму ContactForm и добавляет контакт (пока что костыльно).
+        /// Открывает форму ContactForm и добавляет контакт (пока что без связи с ContactForm).
         /// </summary>
         private void AddUserButton_Click(object sender, EventArgs e)
         {
@@ -133,6 +184,15 @@ namespace ContactsApp.View
         {
             ContactForm EditContactForm = new ContactForm();
             EditContactForm.Show();
+        }
+
+        /// <summary>
+        /// Вызывает функцию удаления контакта и обновления UsersListBox.
+        /// </summary>
+        private void DeleteUserButton_Click(object sender, EventArgs e)
+        {
+            RemoveContact(UsersListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         /// <summary>
@@ -156,6 +216,39 @@ namespace ContactsApp.View
             NotificationPanel.Visible = false;
             NotificationBirthLabel.Visible = false;
             NotificationPictureBox.Visible = false;
+        }
+
+        /// <summary>
+        /// Выводит информацию по выбранному в UsersListBox индексу 
+        /// на правую панель MainForm.
+        /// </summary>
+        private void UsersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (UsersListBox.SelectedIndex == -1) 
+            { 
+                ClearSelectedContact();
+            }
+            else
+            {
+                UpdateSelectedContact(UsersListBox.SelectedIndex);
+            }
+        }
+
+        /// <summary>
+        /// Вызывает MessageBox при закрытии MainForm.
+        /// </summary>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to close the program?",
+                "Exit Message:", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                e.Cancel = false;
+            }
+            else if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
