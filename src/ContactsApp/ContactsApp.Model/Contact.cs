@@ -53,14 +53,17 @@ namespace ContactsApp.Model
                 if (value.Length <= 100)
                 {
                     /*Непроработанный до конца метод, работает только с первой буквой*/
-                    value = value[0].ToString().ToUpper() + value.Substring(1);
+                    if (value != "")
+                    {
+                        value = value[0].ToString().ToUpper() + value.Substring(1);
+                    }
                     _fullName = value;
                 }
                 else
                 {
                     string exception = "Your name '" + value + "' is too long. " +
                         "Try to enter shorter, please.";
-                    throw new ArgumentOutOfRangeException(exception);
+                    throw new ArgumentException(exception);
                 }
             }
         }
@@ -81,7 +84,7 @@ namespace ContactsApp.Model
                 {
                     string exception = "E-mail '" + value + "' is too long. " +
                         "Try to enter shorter, please.";
-                    throw new ArgumentOutOfRangeException(exception);
+                    throw new ArgumentException(exception);
                 }
             }
         }
@@ -114,7 +117,7 @@ namespace ContactsApp.Model
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("The date can't be like this.");
+                    throw new ArgumentException("The date can't be like this.");
                 }
             }
         }
@@ -135,7 +138,7 @@ namespace ContactsApp.Model
                 {
                     string exception = "VK-ID '" + value + "' is too long. " +
                         "Try to enter shorter, please.";
-                    throw new ArgumentOutOfRangeException(exception);
+                    throw new ArgumentException(exception);
                 }
             }
         }

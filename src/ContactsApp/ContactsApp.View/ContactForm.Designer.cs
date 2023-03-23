@@ -37,12 +37,12 @@
             this.PhoneLabel = new System.Windows.Forms.Label();
             this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.BirthDateLabel = new System.Windows.Forms.Label();
-            this.BirthDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.BirthDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,7 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(437, 22);
             this.FullNameTextBox.TabIndex = 3;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // EmailLabel
             // 
@@ -108,6 +109,7 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(437, 22);
             this.EmailTextBox.TabIndex = 5;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // PhoneLabel
             // 
@@ -130,6 +132,7 @@
             this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
             this.PhoneMaskedTextBox.Size = new System.Drawing.Size(190, 22);
             this.PhoneMaskedTextBox.TabIndex = 14;
+            this.PhoneMaskedTextBox.TextChanged += new System.EventHandler(this.PhoneMaskedTextBox_TextChanged);
             // 
             // BirthDateLabel
             // 
@@ -140,35 +143,25 @@
             this.BirthDateLabel.TabIndex = 15;
             this.BirthDateLabel.Text = "Date of Birth:";
             // 
-            // BirthDateDateTimePicker
-            // 
-            this.BirthDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthDateDateTimePicker.Location = new System.Drawing.Point(128, 216);
-            this.BirthDateDateTimePicker.MaximumSize = new System.Drawing.Size(270, 4);
-            this.BirthDateDateTimePicker.MinimumSize = new System.Drawing.Size(190, 22);
-            this.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
-            this.BirthDateDateTimePicker.Size = new System.Drawing.Size(190, 22);
-            this.BirthDateDateTimePicker.TabIndex = 16;
-            // 
             // VKTextBox
             // 
             this.VKTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VKTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VKTextBox.Location = new System.Drawing.Point(128, 274);
+            this.VKTextBox.Location = new System.Drawing.Point(128, 276);
             this.VKTextBox.MaximumSize = new System.Drawing.Size(270, 2);
             this.VKTextBox.MinimumSize = new System.Drawing.Size(190, 22);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(190, 22);
             this.VKTextBox.TabIndex = 18;
+            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
             // 
             // VKLabel
             // 
             this.VKLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VKLabel.AutoSize = true;
-            this.VKLabel.Location = new System.Drawing.Point(125, 255);
+            this.VKLabel.Location = new System.Drawing.Point(125, 257);
             this.VKLabel.Name = "VKLabel";
             this.VKLabel.Size = new System.Drawing.Size(27, 16);
             this.VKLabel.TabIndex = 17;
@@ -216,15 +209,28 @@
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // BirthDateMaskedTextBox
+            // 
+            this.BirthDateMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BirthDateMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BirthDateMaskedTextBox.Location = new System.Drawing.Point(128, 216);
+            this.BirthDateMaskedTextBox.Mask = "00/00/0000";
+            this.BirthDateMaskedTextBox.Name = "BirthDateMaskedTextBox";
+            this.BirthDateMaskedTextBox.Size = new System.Drawing.Size(190, 22);
+            this.BirthDateMaskedTextBox.TabIndex = 20;
+            this.BirthDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
+            this.BirthDateMaskedTextBox.TextChanged += new System.EventHandler(this.BirthDateMaskedTextBox_TextChanged);
+            // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 392);
+            this.Controls.Add(this.BirthDateMaskedTextBox);
             this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.VKTextBox);
             this.Controls.Add(this.VKLabel);
-            this.Controls.Add(this.BirthDateDateTimePicker);
             this.Controls.Add(this.BirthDateLabel);
             this.Controls.Add(this.PhoneMaskedTextBox);
             this.Controls.Add(this.PhoneLabel);
@@ -257,11 +263,11 @@
         private System.Windows.Forms.Label PhoneLabel;
         private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
         private System.Windows.Forms.Label BirthDateLabel;
-        private System.Windows.Forms.DateTimePicker BirthDateDateTimePicker;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.Label VKLabel;
         private System.Windows.Forms.Panel ButtonsPanel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
+        private System.Windows.Forms.MaskedTextBox BirthDateMaskedTextBox;
     }
 }
