@@ -24,7 +24,16 @@ namespace ContactsApp.View
         private Model.Project _project = new Model.Project();
 
         /// <summary>
-        /// Очищает все элементы ListBox, возвращает обновленный список контактов.
+        /// Строит пользовательский интерфейс <see cref="MainForm"/>.
+        /// </summary>
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Очищает все элементы <see cref="UsersListBox"/>, возвращает 
+        /// обновленный список контактов.
         /// </summary>
         private ListBox UpdateListBox()
         {
@@ -37,8 +46,8 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Получает объект по индексу из поля _project, заполняет данные 
-        /// на правой панели MainForm.
+        /// Получает объект по индексу из поля <see cref="_project"/>, заполняет данные 
+        /// на правой панели <see cref="MainForm"/>.
         /// </summary>
         private void UpdateSelectedContact(int index)
         {
@@ -50,7 +59,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Очищает все элементы управления на правой панели MainForm.
+        /// Очищает все элементы управления на правой панели <see cref="MainForm"/>.
         /// </summary>
         private void ClearSelectedContact()
         {
@@ -97,15 +106,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Строит пользовательский интерфейс в MainForm.
-        /// </summary>
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Загружает форму MainForm.
+        /// Загружает форму <see cref="MainForm"/>.
         /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -113,7 +114,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Открывает форму ContactForm и добавляет контакт (пока что без связи с ContactForm).
+        /// Открывает форму <see cref="ContactForm"/> и добавляет контакт.
         /// </summary>
         private void AddUserButton_Click(object sender, EventArgs e)
         {
@@ -124,7 +125,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Открывает форму ContactForm.
+        /// Открывает форму <see cref="ContactForm"/>.
         /// </summary>
         private void EditUserButton_Click(object sender, EventArgs e)
         {
@@ -133,7 +134,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Вызывает функцию удаления контакта и обновления UsersListBox.
+        /// Вызывает функцию удаления контакта и обновления <see cref="UsersListBox"/>.
         /// </summary>
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
@@ -142,7 +143,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Открывает форму AboutForm нажатием F1.
+        /// Открывает форму <see cref="AboutForm"/> нажатием F1.
         /// </summary>
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -154,7 +155,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// "Закрывает" уведомление о днях рождения.
+        /// Закрывает уведомление о днях рождения.
         /// </summary>
         private void NotificationCloseButton_Click(object sender, EventArgs e)
         {
@@ -165,8 +166,8 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Выводит информацию по выбранному в UsersListBox индексу 
-        /// на правую панель MainForm.
+        /// Выводит информацию по выбранному в <see cref="UsersListBox"/> индексу
+        /// на правую панель <see cref="MainForm"/>.
         /// </summary>
         private void UsersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -181,7 +182,7 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Вызывает MessageBox при закрытии MainForm.
+        /// Вызывает MessageBox при закрытии <see cref="MainForm"/>.
         /// </summary>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
