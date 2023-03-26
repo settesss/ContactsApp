@@ -43,6 +43,20 @@ namespace ContactsApp.Model
         public Contact() { }
 
         /// <summary>
+        /// Возвращает новый объект, который является копией текущего объекта.
+        /// </summary>
+        public Contact Clone()
+        {
+            Contact clone = new Contact();
+            clone._fullName = _fullName;
+            clone._email = _email;
+            clone._phoneNumber = _phoneNumber;
+            clone._birthDate = _birthDate;
+            clone._vkId = _vkId;
+            return clone;
+        }
+
+        /// <summary>
         /// Возвращает или задает полное имя.
         /// </summary>
         public string FullName
@@ -56,8 +70,12 @@ namespace ContactsApp.Model
                     if (value != "")
                     {
                         value = value[0].ToString().ToUpper() + value.Substring(1);
+                        _fullName = value;
                     }
-                    _fullName = value;
+                    else
+                    {
+                        _fullName = "Empty Name";
+                    }
                 }
                 else
                 {

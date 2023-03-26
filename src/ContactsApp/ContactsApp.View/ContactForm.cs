@@ -18,7 +18,13 @@ namespace ContactsApp.View
         /// <summary>
         /// Контакт.
         /// </summary>
-        Model.Contact _contact = new Model.Contact();
+        private Model.Contact _contact = new Model.Contact();
+
+        public Model.Contact Contact
+        {
+            get { return _contact; }
+            set { _contact = value; }
+        }
 
         /// <summary>
         /// Текст ошибки ввода в <see cref="FullNameTextBox"/>.
@@ -118,7 +124,7 @@ namespace ContactsApp.View
         /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult = DialogResult.Cancel;
         }
 
         /// <summary>
@@ -128,7 +134,9 @@ namespace ContactsApp.View
         {
             if (CheckFormOnErrors() == true)
             {
+                DialogResult = DialogResult.OK;
                 UpdateContact();
+                Close();
             }
         }
 
