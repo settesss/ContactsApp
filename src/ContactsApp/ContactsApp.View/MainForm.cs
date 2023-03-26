@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContactsApp.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Проект.
         /// </summary>
-        private Model.Project _project = new Model.Project();
+        private Project _project = new Project();
 
         /// <summary>
         /// Строит пользовательский интерфейс <see cref="MainForm"/>.
@@ -75,9 +76,31 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
-            Model.Contact user = new Model.Contact();
+            Contact user = new Contact();
             ContactFactory.GenerateRandom(user);
             _project.Contacts.Add(user);
+        }
+
+        /// <summary>
+        /// Открывает <see cref="ContactForm"/> для редактирования контакта.
+        /// </summary>
+        private void EditContact(int index)
+        {
+            var form = new ContactForm();
+            var contactToEdit = _project.Contacts[index].Clone();
+            form.Contact = contactToEdit;
+            form.ShowDialog();
+            if (form.DialogResult == DialogResult.OK)
+            {
+                var editedContact = form.Contact;
+                UsersListBox.Items.RemoveAt(index);
+                _project.Contacts.RemoveAt(index);
+                _project.Contacts.Insert(index, editedContact);
+            }
+            else if (form.DialogResult == DialogResult.Cancel)
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -119,9 +142,16 @@ namespace ContactsApp.View
         private void AddUserButton_Click(object sender, EventArgs e)
         {
             ContactForm AddContactForm = new ContactForm();
-            AddContactForm.Show();
-            AddContact();
-            UpdateListBox();
+            AddContactForm.ShowDialog();
+            if (AddContactForm.DialogResult == DialogResult.OK)
+            {
+                _project.Contacts.Add(AddContactForm.Contact);
+                UpdateListBox();
+            }
+            else if (AddContactForm.DialogResult == DialogResult.Cancel)
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -129,8 +159,16 @@ namespace ContactsApp.View
         /// </summary>
         private void EditUserButton_Click(object sender, EventArgs e)
         {
-            ContactForm EditContactForm = new ContactForm();
-            EditContactForm.Show();
+            var selectedIndex = UsersListBox.SelectedIndex;
+            if (selectedIndex != -1)
+            {
+                EditContact(selectedIndex);
+                UpdateListBox();
+            }
+            else 
+            { 
+                return; 
+            }
         }
 
         /// <summary>
