@@ -58,7 +58,8 @@ namespace ContactsApp.Model
             string birthdayList = "";
             for (int i = 0; i < listBox.Items.Count; i++)
             {
-                if (contacts[i].BirthDate == DateTime.Today)
+                if (contacts[i].BirthDate.Month == DateTime.Today.Month
+                    && contacts[i].BirthDate.Day == DateTime.Today.Day)
                 {
                     birthdayList += listBox.Items[i].ToString() + "; ";
                 }

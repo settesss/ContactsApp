@@ -25,6 +25,11 @@ namespace ContactsApp.View
         private Project _project = new Project();
 
         /// <summary>
+        /// Проверка нажатия на <see cref="NotificationCloseButton"/>
+        /// </summary>
+        private bool notificationClose = false;
+
+        /// <summary>
         /// Строит пользовательский интерфейс <see cref="MainForm"/>.
         /// </summary>
         public MainForm()
@@ -42,6 +47,11 @@ namespace ContactsApp.View
             for (int i = 0; i < _project.Contacts.Count; i++)
             {
                 UsersListBox.Items.Add(_project.Contacts[i].FullName);
+            }
+            if (notificationClose == false)
+            {
+                BirthdayUsersLabel.Text =
+                    _project.FindContactsOfBirthdayPeople(UsersListBox, _project.Contacts);
             }
             return UsersListBox;
         }
@@ -197,6 +207,7 @@ namespace ContactsApp.View
         /// </summary>
         private void NotificationCloseButton_Click(object sender, EventArgs e)
         {
+            notificationClose = true;
             NotificationCloseButton.Visible = false;
             NotificationPanel.Visible = false;
             NotificationBirthLabel.Visible = false;
