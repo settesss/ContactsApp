@@ -18,32 +18,25 @@ namespace ContactsApp.Model
         public List<Contact> Contacts {get; set;} = new List<Contact>();
 
         /// <summary>
-        /// Сортирует контакты по полному имени и возвращает отсортированный список.
+        /// Сортирует контакты по полному имени и возвращает 
+        /// расположение одного контакта относительно другого.
         /// </summary>
-        public ListBox SortContactsByFullName(ListBox listBox, string contactName)
+        public int SortContactsByFullName(Contact firstContact, Contact secondContact)
         {
-            ListBox listBoxSorted = new ListBox();
-            for (int i = 0; i < listBox.Items.Count; i++)
-            {
-                if (listBox.Items[i].ToString() == contactName)
-                {
-                    listBoxSorted.Items.Add(listBox.Items[i]);
-                }
-            }
-            return listBoxSorted;
+            return firstContact.FullName.CompareTo(secondContact.FullName);
         }
 
         /// <summary>
         /// Сортирует контакты по подстроке и возвращает отсортированный список.
         /// </summary>
-        public ListBox SortContactsBySubstring(ListBox listBox, string substring) 
-        { 
-            ListBox listBoxSorted = new ListBox();
-            for (int i = 0; i < listBox.Items.Count; i++)
+        public List<Contact> FindContactsBySubstring(List<Contact> list, string substring) 
+        {
+            List<Contact> listBoxSorted = new List<Contact>();
+            for (int i = 0; i < list.Count; i++)
             {
-                if (listBox.Items[i].ToString().Contains(substring))
+                if (list[i].FullName.Contains(substring))
                 {
-                    listBoxSorted.Items.Add(listBox.Items[i]);
+                    listBoxSorted.Add(list[i]);
                 }
             }
             return listBoxSorted;
