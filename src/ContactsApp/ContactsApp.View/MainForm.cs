@@ -25,6 +25,11 @@ namespace ContactsApp.View
         private Project _project = new Project();
 
         /// <summary>
+        /// Текущие контакты, которые отображаются на экране.
+        /// </summary>
+        private List<Contact> _currentContacts = new List<Contact>();
+
+        /// <summary>
         /// Проверка нажатия на <see cref="NotificationCloseButton"/>
         /// </summary>
         private bool notificationClose = false;
@@ -44,14 +49,24 @@ namespace ContactsApp.View
         private ListBox UpdateListBox()
         {
             UsersListBox.Items.Clear();
-            for (int i = 0; i < _project.Contacts.Count; i++)
+            if (FindTextBox.Text == "")
             {
-                UsersListBox.Items.Add(_project.Contacts[i].FullName);
+                for (int i = 0; i < _project.Contacts.Count; i++)
+                {
+                    UsersListBox.Items.Add(_project.Contacts[i].FullName);
+                }
+                if (notificationClose == false)
+                {
+                    BirthdayUsersLabel.Text =
+                        _project.FindContactsOfBirthdayPeople(UsersListBox, _project.Contacts);
+                }
             }
-            if (notificationClose == false)
+            else
             {
-                BirthdayUsersLabel.Text =
-                    _project.FindContactsOfBirthdayPeople(UsersListBox, _project.Contacts);
+                for (int i = 0; i < _currentContacts.Count; i++)
+                {
+                    UsersListBox.Items.Add(_currentContacts[i].FullName);
+                }
             }
             return UsersListBox;
         }
@@ -62,11 +77,22 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateSelectedContact(int index)
         {
-            FullNameTextBox.Text = _project.Contacts[index].FullName;
-            EmailTextBox.Text = _project.Contacts[index].Email;
-            PhoneMaskedTextBox.Text = _project.Contacts[index].PhoneNumber;
-            BirthDateMaskedTextBox.Text = _project.Contacts[index].BirthDate.ToString();
-            VKTextBox.Text = _project.Contacts[index].VKID;
+            if (FindTextBox.Text == "")
+            {
+                FullNameTextBox.Text = _project.Contacts[index].FullName;
+                EmailTextBox.Text = _project.Contacts[index].Email;
+                PhoneMaskedTextBox.Text = _project.Contacts[index].PhoneNumber;
+                BirthDateMaskedTextBox.Text = _project.Contacts[index].BirthDate.ToString();
+                VKTextBox.Text = _project.Contacts[index].VKID;
+            }
+            else
+            {
+                FullNameTextBox.Text = _currentContacts[index].FullName;
+                EmailTextBox.Text = _currentContacts[index].Email;
+                PhoneMaskedTextBox.Text = _currentContacts[index].PhoneNumber;
+                BirthDateMaskedTextBox.Text = _currentContacts[index].BirthDate.ToString();
+                VKTextBox.Text = _currentContacts[index].VKID;
+            }
         }
 
         /// <summary>
@@ -94,18 +120,31 @@ namespace ContactsApp.View
         /// <summary>
         /// Открывает <see cref="ContactForm"/> для редактирования контакта.
         /// </summary>
-        private void EditContact(int index)
+        private void EditContact(int index, List<Contact> contacts)
         {
             var form = new ContactForm();
-            var contactToEdit = _project.Contacts[index].Clone();
+            Contact contactToEdit;
+            contactToEdit = contacts[index].Clone();
             form.Contact = contactToEdit;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {
                 var editedContact = form.Contact;
+                if (contacts.Count == _currentContacts.Count)
+                {
+                    for (int i = 0; i < _project.Contacts.Count; i++)
+                    {
+                        if (_project.Contacts[i] == _currentContacts[index])
+                        {
+                            _project.Contacts.RemoveAt(i);
+                            _project.Contacts.Insert(i, editedContact);
+                            break;
+                        }
+                    }
+                }
                 UsersListBox.Items.RemoveAt(index);
-                _project.Contacts.RemoveAt(index);
-                _project.Contacts.Insert(index, editedContact);
+                contacts.RemoveAt(index);
+                contacts.Insert(index, editedContact);
             }
             else if (form.DialogResult == DialogResult.Cancel)
             {
@@ -129,7 +168,22 @@ namespace ContactsApp.View
                 "Deletion message:", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    _project.Contacts.RemoveAt(index);
+                    if (FindTextBox.Text == "")
+                    {
+                        _project.Contacts.RemoveAt(index);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < _project.Contacts.Count; i++)
+                        {
+                            if (_project.Contacts[i] == _currentContacts[index])
+                            {
+                                _project.Contacts.RemoveAt(i);
+                                _currentContacts.RemoveAt(index);
+                                break;
+                            }
+                        }
+                    }
                 }
                 else if (result == DialogResult.Cancel)
                 {
@@ -156,6 +210,7 @@ namespace ContactsApp.View
             if (AddContactForm.DialogResult == DialogResult.OK)
             {
                 _project.Contacts.Add(AddContactForm.Contact);
+                _project.Contacts.Sort(_project.SortContactsByFullName);
                 UpdateListBox();
             }
             else if (AddContactForm.DialogResult == DialogResult.Cancel)
@@ -172,7 +227,14 @@ namespace ContactsApp.View
             var selectedIndex = UsersListBox.SelectedIndex;
             if (selectedIndex != -1)
             {
-                EditContact(selectedIndex);
+                if (FindTextBox.Text == "")
+                {
+                    EditContact(selectedIndex, _project.Contacts);
+                }
+                else
+                {
+                    EditContact(selectedIndex, _currentContacts);
+                }
                 UpdateListBox();
             }
             else 
@@ -185,7 +247,7 @@ namespace ContactsApp.View
         /// Вызывает функцию удаления контакта и обновления <see cref="UsersListBox"/>.
         /// </summary>
         private void DeleteUserButton_Click(object sender, EventArgs e)
-        {
+        {   
             RemoveContact(UsersListBox.SelectedIndex);
             UpdateListBox();
         }
@@ -244,6 +306,20 @@ namespace ContactsApp.View
             else if (result == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (FindTextBox.Text != "")
+            {
+                _currentContacts = 
+                    _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+                UpdateListBox();
+            }
+            else
+            {
+                UpdateListBox();
             }
         }
     }
