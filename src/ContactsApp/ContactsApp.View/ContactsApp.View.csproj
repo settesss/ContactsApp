@@ -128,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8-bookmark-48.ico" />
+    <None Include="Resources\remove_contact_32x32.png" />
+    <None Include="Resources\info_48x48.png" />
+    <None Include="Resources\edit_contact_32x32.png" />
+    <None Include="Resources\collapse_32x32.png" />
+    <None Include="Resources\add_photo_32x32.png" />
+    <None Include="Resources\add_contact_32x32.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactsApp.Model\ContactsApp.Model.csproj">
