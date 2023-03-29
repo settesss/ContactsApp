@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactsApp.Model\ContactsApp.Model.csproj">
-      <Project>{a0beb5ac-6c5e-4c78-8785-1bded74b6b90}</Project>
+      <Project>{1beba793-7cf2-4979-ba92-9f2ab7bb1585}</Project>
       <Name>ContactsApp.Model</Name>
     </ProjectReference>
   </ItemGroup>
