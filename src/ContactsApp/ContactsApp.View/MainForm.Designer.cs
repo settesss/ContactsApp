@@ -30,13 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
+            this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.DeleteUserButton = new System.Windows.Forms.Button();
+            this.AddUserButton = new System.Windows.Forms.Button();
+            this.EditUserButton = new System.Windows.Forms.Button();
             this.UsersListBox = new System.Windows.Forms.ListBox();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.FindLabel = new System.Windows.Forms.Label();
             this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.BirthDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.NotificationPanel = new System.Windows.Forms.Panel();
+            this.BirthdayUsersLabel = new System.Windows.Forms.Label();
             this.NotificationBirthLabel = new System.Windows.Forms.Label();
+            this.NotificationPictureBox = new System.Windows.Forms.PictureBox();
+            this.NotificationCloseButton = new System.Windows.Forms.Button();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
             this.BirthDateLabel = new System.Windows.Forms.Label();
@@ -45,20 +52,13 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
-            this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.DeleteUserButton = new System.Windows.Forms.Button();
-            this.AddUserButton = new System.Windows.Forms.Button();
-            this.EditUserButton = new System.Windows.Forms.Button();
-            this.NotificationPictureBox = new System.Windows.Forms.PictureBox();
-            this.NotificationCloseButton = new System.Windows.Forms.Button();
             this.UserPictureBox = new System.Windows.Forms.PictureBox();
-            this.BirthdayUsersLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
             this.SplitContainer.SuspendLayout();
-            this.NotificationPanel.SuspendLayout();
             this.ButtonsTableLayoutPanel.SuspendLayout();
+            this.NotificationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -98,180 +98,6 @@
             this.SplitContainer.SplitterDistance = 250;
             this.SplitContainer.SplitterWidth = 3;
             this.SplitContainer.TabIndex = 0;
-            // 
-            // UsersListBox
-            // 
-            this.UsersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UsersListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UsersListBox.FormattingEnabled = true;
-            this.UsersListBox.IntegralHeight = false;
-            this.UsersListBox.Location = new System.Drawing.Point(6, 30);
-            this.UsersListBox.Name = "UsersListBox";
-            this.UsersListBox.Size = new System.Drawing.Size(238, 379);
-            this.UsersListBox.TabIndex = 2;
-            // 
-            // FindTextBox
-            // 
-            this.FindTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FindTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FindTextBox.Location = new System.Drawing.Point(38, 6);
-            this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(206, 20);
-            this.FindTextBox.TabIndex = 1;
-            // 
-            // FindLabel
-            // 
-            this.FindLabel.AutoSize = true;
-            this.FindLabel.Location = new System.Drawing.Point(3, 9);
-            this.FindLabel.Name = "FindLabel";
-            this.FindLabel.Size = new System.Drawing.Size(30, 13);
-            this.FindLabel.TabIndex = 0;
-            this.FindLabel.Text = "Find:";
-            // 
-            // PhoneMaskedTextBox
-            // 
-            this.PhoneMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PhoneMaskedTextBox.Location = new System.Drawing.Point(112, 133);
-            this.PhoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.PhoneMaskedTextBox.Mask = "+7 (999) 000-00-00";
-            this.PhoneMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
-            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(175, 22);
-            this.PhoneMaskedTextBox.TabIndex = 13;
-            // 
-            // BirthDateMaskedTextBox
-            // 
-            this.BirthDateMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BirthDateMaskedTextBox.Location = new System.Drawing.Point(112, 182);
-            this.BirthDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.BirthDateMaskedTextBox.Mask = "00/00/0000";
-            this.BirthDateMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.BirthDateMaskedTextBox.Name = "BirthDateMaskedTextBox";
-            this.BirthDateMaskedTextBox.Size = new System.Drawing.Size(175, 22);
-            this.BirthDateMaskedTextBox.TabIndex = 12;
-            this.BirthDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
-            // 
-            // NotificationPanel
-            // 
-            this.NotificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NotificationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.NotificationPanel.Controls.Add(this.BirthdayUsersLabel);
-            this.NotificationPanel.Controls.Add(this.NotificationBirthLabel);
-            this.NotificationPanel.Controls.Add(this.NotificationPictureBox);
-            this.NotificationPanel.Controls.Add(this.NotificationCloseButton);
-            this.NotificationPanel.Location = new System.Drawing.Point(6, 370);
-            this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(535, 80);
-            this.NotificationPanel.TabIndex = 11;
-            // 
-            // NotificationBirthLabel
-            // 
-            this.NotificationBirthLabel.AutoSize = true;
-            this.NotificationBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NotificationBirthLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.NotificationBirthLabel.Location = new System.Drawing.Point(82, 20);
-            this.NotificationBirthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.NotificationBirthLabel.Name = "NotificationBirthLabel";
-            this.NotificationBirthLabel.Size = new System.Drawing.Size(146, 13);
-            this.NotificationBirthLabel.TabIndex = 12;
-            this.NotificationBirthLabel.Text = "Today is the Birthday of:";
-            // 
-            // VKTextBox
-            // 
-            this.VKTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VKTextBox.Location = new System.Drawing.Point(112, 231);
-            this.VKTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.VKTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(175, 22);
-            this.VKTextBox.TabIndex = 10;
-            // 
-            // VKLabel
-            // 
-            this.VKLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.VKLabel.AutoSize = true;
-            this.VKLabel.Location = new System.Drawing.Point(112, 216);
-            this.VKLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.VKLabel.Name = "VKLabel";
-            this.VKLabel.Size = new System.Drawing.Size(24, 13);
-            this.VKLabel.TabIndex = 9;
-            this.VKLabel.Text = "VK:";
-            // 
-            // BirthDateLabel
-            // 
-            this.BirthDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(112, 167);
-            this.BirthDateLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.BirthDateLabel.Name = "BirthDateLabel";
-            this.BirthDateLabel.Size = new System.Drawing.Size(69, 13);
-            this.BirthDateLabel.TabIndex = 7;
-            this.BirthDateLabel.Text = "Date of Birth:";
-            // 
-            // PhoneLabel
-            // 
-            this.PhoneLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneLabel.AutoSize = true;
-            this.PhoneLabel.Location = new System.Drawing.Point(112, 118);
-            this.PhoneLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(78, 13);
-            this.PhoneLabel.TabIndex = 5;
-            this.PhoneLabel.Text = "PhoneNumber:";
-            // 
-            // EmailTextBox
-            // 
-            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EmailTextBox.Location = new System.Drawing.Point(112, 84);
-            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.EmailTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(429, 22);
-            this.EmailTextBox.TabIndex = 4;
-            // 
-            // EmailLabel
-            // 
-            this.EmailLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(112, 69);
-            this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(39, 13);
-            this.EmailLabel.TabIndex = 3;
-            this.EmailLabel.Text = "E-Mail:";
-            // 
-            // FullNameTextBox
-            // 
-            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FullNameTextBox.Location = new System.Drawing.Point(112, 25);
-            this.FullNameTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(429, 22);
-            this.FullNameTextBox.TabIndex = 2;
-            // 
-            // FullNameLabel
-            // 
-            this.FullNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FullNameLabel.AutoSize = true;
-            this.FullNameLabel.Location = new System.Drawing.Point(112, 9);
-            this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(57, 13);
-            this.FullNameLabel.TabIndex = 1;
-            this.FullNameLabel.Text = "Full Name:";
             // 
             // ButtonsTableLayoutPanel
             // 
@@ -335,6 +161,100 @@
             this.EditUserButton.UseVisualStyleBackColor = true;
             this.EditUserButton.Click += new System.EventHandler(this.EditUserButton_Click);
             // 
+            // UsersListBox
+            // 
+            this.UsersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UsersListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UsersListBox.FormattingEnabled = true;
+            this.UsersListBox.IntegralHeight = false;
+            this.UsersListBox.Location = new System.Drawing.Point(6, 30);
+            this.UsersListBox.Name = "UsersListBox";
+            this.UsersListBox.Size = new System.Drawing.Size(238, 379);
+            this.UsersListBox.TabIndex = 2;
+            // 
+            // FindTextBox
+            // 
+            this.FindTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FindTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FindTextBox.Location = new System.Drawing.Point(38, 6);
+            this.FindTextBox.Name = "FindTextBox";
+            this.FindTextBox.Size = new System.Drawing.Size(206, 20);
+            this.FindTextBox.TabIndex = 1;
+            // 
+            // FindLabel
+            // 
+            this.FindLabel.AutoSize = true;
+            this.FindLabel.Location = new System.Drawing.Point(3, 9);
+            this.FindLabel.Name = "FindLabel";
+            this.FindLabel.Size = new System.Drawing.Size(30, 13);
+            this.FindLabel.TabIndex = 0;
+            this.FindLabel.Text = "Find:";
+            // 
+            // PhoneMaskedTextBox
+            // 
+            this.PhoneMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PhoneMaskedTextBox.Location = new System.Drawing.Point(112, 133);
+            this.PhoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PhoneMaskedTextBox.Mask = "+7 (999) 000-00-00";
+            this.PhoneMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
+            this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
+            this.PhoneMaskedTextBox.ReadOnly = true;
+            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(175, 20);
+            this.PhoneMaskedTextBox.TabIndex = 13;
+            // 
+            // BirthDateMaskedTextBox
+            // 
+            this.BirthDateMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BirthDateMaskedTextBox.Location = new System.Drawing.Point(112, 182);
+            this.BirthDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.BirthDateMaskedTextBox.Mask = "00/00/0000";
+            this.BirthDateMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
+            this.BirthDateMaskedTextBox.Name = "BirthDateMaskedTextBox";
+            this.BirthDateMaskedTextBox.ReadOnly = true;
+            this.BirthDateMaskedTextBox.Size = new System.Drawing.Size(175, 20);
+            this.BirthDateMaskedTextBox.TabIndex = 12;
+            this.BirthDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
+            // 
+            // NotificationPanel
+            // 
+            this.NotificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NotificationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.NotificationPanel.Controls.Add(this.BirthdayUsersLabel);
+            this.NotificationPanel.Controls.Add(this.NotificationBirthLabel);
+            this.NotificationPanel.Controls.Add(this.NotificationPictureBox);
+            this.NotificationPanel.Controls.Add(this.NotificationCloseButton);
+            this.NotificationPanel.Location = new System.Drawing.Point(6, 370);
+            this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.NotificationPanel.Name = "NotificationPanel";
+            this.NotificationPanel.Size = new System.Drawing.Size(536, 80);
+            this.NotificationPanel.TabIndex = 11;
+            // 
+            // BirthdayUsersLabel
+            // 
+            this.BirthdayUsersLabel.AutoSize = true;
+            this.BirthdayUsersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BirthdayUsersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.BirthdayUsersLabel.Location = new System.Drawing.Point(83, 41);
+            this.BirthdayUsersLabel.Name = "BirthdayUsersLabel";
+            this.BirthdayUsersLabel.Size = new System.Drawing.Size(0, 13);
+            this.BirthdayUsersLabel.TabIndex = 14;
+            // 
+            // NotificationBirthLabel
+            // 
+            this.NotificationBirthLabel.AutoSize = true;
+            this.NotificationBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NotificationBirthLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.NotificationBirthLabel.Location = new System.Drawing.Point(82, 20);
+            this.NotificationBirthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.NotificationBirthLabel.Name = "NotificationBirthLabel";
+            this.NotificationBirthLabel.Size = new System.Drawing.Size(146, 13);
+            this.NotificationBirthLabel.TabIndex = 12;
+            this.NotificationBirthLabel.Text = "Today is the Birthday of:";
+            // 
             // NotificationPictureBox
             // 
             this.NotificationPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -353,13 +273,108 @@
             this.NotificationCloseButton.FlatAppearance.BorderSize = 0;
             this.NotificationCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NotificationCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32_empty;
-            this.NotificationCloseButton.Location = new System.Drawing.Point(506, 1);
+            this.NotificationCloseButton.Location = new System.Drawing.Point(507, 1);
             this.NotificationCloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationCloseButton.Name = "NotificationCloseButton";
             this.NotificationCloseButton.Size = new System.Drawing.Size(26, 28);
             this.NotificationCloseButton.TabIndex = 0;
             this.NotificationCloseButton.UseVisualStyleBackColor = true;
             this.NotificationCloseButton.Click += new System.EventHandler(this.NotificationCloseButton_Click);
+            // 
+            // VKTextBox
+            // 
+            this.VKTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.VKTextBox.Location = new System.Drawing.Point(112, 231);
+            this.VKTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.VKTextBox.MinimumSize = new System.Drawing.Size(143, 22);
+            this.VKTextBox.Name = "VKTextBox";
+            this.VKTextBox.ReadOnly = true;
+            this.VKTextBox.Size = new System.Drawing.Size(175, 20);
+            this.VKTextBox.TabIndex = 10;
+            // 
+            // VKLabel
+            // 
+            this.VKLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VKLabel.AutoSize = true;
+            this.VKLabel.Location = new System.Drawing.Point(112, 216);
+            this.VKLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.VKLabel.Name = "VKLabel";
+            this.VKLabel.Size = new System.Drawing.Size(24, 13);
+            this.VKLabel.TabIndex = 9;
+            this.VKLabel.Text = "VK:";
+            // 
+            // BirthDateLabel
+            // 
+            this.BirthDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BirthDateLabel.AutoSize = true;
+            this.BirthDateLabel.Location = new System.Drawing.Point(112, 167);
+            this.BirthDateLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.BirthDateLabel.Name = "BirthDateLabel";
+            this.BirthDateLabel.Size = new System.Drawing.Size(69, 13);
+            this.BirthDateLabel.TabIndex = 7;
+            this.BirthDateLabel.Text = "Date of Birth:";
+            // 
+            // PhoneLabel
+            // 
+            this.PhoneLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PhoneLabel.AutoSize = true;
+            this.PhoneLabel.Location = new System.Drawing.Point(112, 118);
+            this.PhoneLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.PhoneLabel.Name = "PhoneLabel";
+            this.PhoneLabel.Size = new System.Drawing.Size(78, 13);
+            this.PhoneLabel.TabIndex = 5;
+            this.PhoneLabel.Text = "PhoneNumber:";
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EmailTextBox.Location = new System.Drawing.Point(112, 84);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.EmailTextBox.MinimumSize = new System.Drawing.Size(143, 22);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.ReadOnly = true;
+            this.EmailTextBox.Size = new System.Drawing.Size(430, 20);
+            this.EmailTextBox.TabIndex = 4;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(112, 69);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(39, 13);
+            this.EmailLabel.TabIndex = 3;
+            this.EmailLabel.Text = "E-Mail:";
+            // 
+            // FullNameTextBox
+            // 
+            this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FullNameTextBox.Location = new System.Drawing.Point(112, 25);
+            this.FullNameTextBox.MinimumSize = new System.Drawing.Size(143, 22);
+            this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.ReadOnly = true;
+            this.FullNameTextBox.Size = new System.Drawing.Size(430, 20);
+            this.FullNameTextBox.TabIndex = 2;
+            // 
+            // FullNameLabel
+            // 
+            this.FullNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FullNameLabel.AutoSize = true;
+            this.FullNameLabel.Location = new System.Drawing.Point(112, 9);
+            this.FullNameLabel.Name = "FullNameLabel";
+            this.FullNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.FullNameLabel.TabIndex = 1;
+            this.FullNameLabel.Text = "Full Name:";
             // 
             // UserPictureBox
             // 
@@ -371,16 +386,6 @@
             this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.UserPictureBox.TabIndex = 0;
             this.UserPictureBox.TabStop = false;
-            // 
-            // BirthdayUsersLabel
-            // 
-            this.BirthdayUsersLabel.AutoSize = true;
-            this.BirthdayUsersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BirthdayUsersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.BirthdayUsersLabel.Location = new System.Drawing.Point(83, 41);
-            this.BirthdayUsersLabel.Name = "BirthdayUsersLabel";
-            this.BirthdayUsersLabel.Size = new System.Drawing.Size(0, 13);
-            this.BirthdayUsersLabel.TabIndex = 14;
             // 
             // MainForm
             // 
@@ -403,9 +408,9 @@
             this.SplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
             this.SplitContainer.ResumeLayout(false);
+            this.ButtonsTableLayoutPanel.ResumeLayout(false);
             this.NotificationPanel.ResumeLayout(false);
             this.NotificationPanel.PerformLayout();
-            this.ButtonsTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
             this.ResumeLayout(false);
