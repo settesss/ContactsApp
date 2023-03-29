@@ -9,7 +9,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает менеджер проекта.
     /// </summary>
-    internal class ProjectManager
+    internal class ProjectSerializer
     {
 
     }
