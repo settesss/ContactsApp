@@ -32,7 +32,6 @@
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
             this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DeleteUserButton = new System.Windows.Forms.Button();
-            this.AddUserButton = new System.Windows.Forms.Button();
             this.EditUserButton = new System.Windows.Forms.Button();
             this.UsersListBox = new System.Windows.Forms.ListBox();
             this.FindTextBox = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.UserPictureBox = new System.Windows.Forms.PictureBox();
+            this.AddUserButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
@@ -130,21 +130,7 @@
             this.DeleteUserButton.Size = new System.Drawing.Size(80, 35);
             this.DeleteUserButton.TabIndex = 4;
             this.DeleteUserButton.UseVisualStyleBackColor = true;
-            // 
-            // AddUserButton
-            // 
-            this.AddUserButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddUserButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddUserButton.FlatAppearance.BorderSize = 0;
-            this.AddUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddUserButton.Image = ((System.Drawing.Image)(resources.GetObject("AddUserButton.Image")));
-            this.AddUserButton.Location = new System.Drawing.Point(0, 0);
-            this.AddUserButton.Margin = new System.Windows.Forms.Padding(0);
-            this.AddUserButton.Name = "AddUserButton";
-            this.AddUserButton.Size = new System.Drawing.Size(79, 35);
-            this.AddUserButton.TabIndex = 1;
-            this.AddUserButton.UseVisualStyleBackColor = true;
-            this.AddUserButton.Click += new System.EventHandler(this.AddUserButton_Click);
+            this.DeleteUserButton.Click += new System.EventHandler(this.DeleteUserButton_Click);
             // 
             // EditUserButton
             // 
@@ -173,6 +159,7 @@
             this.UsersListBox.Name = "UsersListBox";
             this.UsersListBox.Size = new System.Drawing.Size(238, 379);
             this.UsersListBox.TabIndex = 2;
+            this.UsersListBox.SelectedIndexChanged += new System.EventHandler(this.UsersListBox_SelectedIndexChanged);
             // 
             // FindTextBox
             // 
@@ -183,6 +170,7 @@
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(206, 20);
             this.FindTextBox.TabIndex = 1;
+            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // FindLabel
             // 
@@ -230,7 +218,7 @@
             this.NotificationPanel.Location = new System.Drawing.Point(6, 370);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(536, 80);
+            this.NotificationPanel.Size = new System.Drawing.Size(537, 80);
             this.NotificationPanel.TabIndex = 11;
             // 
             // BirthdayUsersLabel
@@ -273,7 +261,7 @@
             this.NotificationCloseButton.FlatAppearance.BorderSize = 0;
             this.NotificationCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NotificationCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32_empty;
-            this.NotificationCloseButton.Location = new System.Drawing.Point(507, 1);
+            this.NotificationCloseButton.Location = new System.Drawing.Point(508, 1);
             this.NotificationCloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationCloseButton.Name = "NotificationCloseButton";
             this.NotificationCloseButton.Size = new System.Drawing.Size(26, 28);
@@ -338,7 +326,7 @@
             this.EmailTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.ReadOnly = true;
-            this.EmailTextBox.Size = new System.Drawing.Size(430, 20);
+            this.EmailTextBox.Size = new System.Drawing.Size(431, 20);
             this.EmailTextBox.TabIndex = 4;
             // 
             // EmailLabel
@@ -362,7 +350,7 @@
             this.FullNameTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.ReadOnly = true;
-            this.FullNameTextBox.Size = new System.Drawing.Size(430, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(431, 20);
             this.FullNameTextBox.TabIndex = 2;
             // 
             // FullNameLabel
@@ -386,6 +374,21 @@
             this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.UserPictureBox.TabIndex = 0;
             this.UserPictureBox.TabStop = false;
+            // 
+            // AddUserButton
+            // 
+            this.AddUserButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddUserButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddUserButton.FlatAppearance.BorderSize = 0;
+            this.AddUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddUserButton.Image = ((System.Drawing.Image)(resources.GetObject("AddUserButton.Image")));
+            this.AddUserButton.Location = new System.Drawing.Point(0, 0);
+            this.AddUserButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AddUserButton.Name = "AddUserButton";
+            this.AddUserButton.Size = new System.Drawing.Size(79, 35);
+            this.AddUserButton.TabIndex = 1;
+            this.AddUserButton.UseVisualStyleBackColor = true;
+            this.AddUserButton.Click += new System.EventHandler(this.AddUserButton_Click);
             // 
             // MainForm
             // 
@@ -424,7 +427,6 @@
         private System.Windows.Forms.TextBox FindTextBox;
         private System.Windows.Forms.Label FindLabel;
         private System.Windows.Forms.PictureBox UserPictureBox;
-        private System.Windows.Forms.Button AddUserButton;
         private System.Windows.Forms.Button EditUserButton;
         private System.Windows.Forms.Button DeleteUserButton;
         private System.Windows.Forms.Label FullNameLabel;
@@ -443,6 +445,7 @@
         private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
         private System.Windows.Forms.TableLayoutPanel ButtonsTableLayoutPanel;
         private System.Windows.Forms.Label BirthdayUsersLabel;
+        private System.Windows.Forms.Button AddUserButton;
     }
 }
 
