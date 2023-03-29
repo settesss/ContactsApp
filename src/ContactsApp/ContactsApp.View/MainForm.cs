@@ -309,6 +309,9 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Обрабатывает введённый текст в <see cref="FindTextBox"/>
+        /// </summary>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
             if (FindTextBox.Text != "")
@@ -321,6 +324,84 @@ namespace ContactsApp.View
             {
                 UpdateListBox();
             }
+        }
+
+        /// <summary>
+        /// Обрабатывает наведение на кнопку <see cref="AddUserButton"></see>
+        /// </summary>
+        private void AddUserButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddUserButton.Image = Properties.Resources.add_contact_32x32;
+            AddUserButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+        }
+
+        /// <summary>
+        /// Обрабатывает событие при сведении мыши с <see cref="AddUserButton"/>
+        /// </summary>
+        private void AddUserButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddUserButton.Image = Properties.Resources.add_contact_32x32_gray;
+            AddUserButton.BackColor = Color.White;
+        }
+
+        /// <summary>
+        /// Обрабатывает наведение на кнопку <see cref="EditUserButton"></see>
+        /// </summary>
+        private void EditUserButton_MouseEnter(object sender, EventArgs e)
+        {
+            EditUserButton.Image = Properties.Resources.edit_contact_32x32;
+            EditUserButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+        }
+
+        /// <summary>
+        /// Обрабатывает событие при сведении мыши с <see cref="EditUserButton"/>
+        /// </summary>
+        private void EditUserButton_MouseLeave(object sender, EventArgs e)
+        {
+            EditUserButton.Image = Properties.Resources.edit_contact_32x32_gray;
+            EditUserButton.BackColor = Color.White;
+        }
+
+        /// <summary>
+        /// Обрабатывает наведение на кнопку <see cref="DeleteUserButton"></see>
+        /// </summary>
+        private void DeleteUserButton_MouseEnter(object sender, EventArgs e)
+        {
+            DeleteUserButton.Image = Properties.Resources.remove_contact_32x32;
+            DeleteUserButton.BackColor = ColorTranslator.FromHtml("#FAF5FF");
+        }
+
+        /// <summary>
+        /// Обрабатывает событие при сведении мыши с <see cref="DeleteUserButton"/>
+        /// </summary>
+        private void DeleteUserButton_MouseLeave(object sender, EventArgs e)
+        {
+            DeleteUserButton.Image = Properties.Resources.remove_contact_32x32_gray;
+            DeleteUserButton.BackColor = Color.White;
+        }
+
+        /// <summary>
+        /// Запрещает ввод символов в <see cref="FullNameTextBox"/>
+        /// </summary>
+        private void FullNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Запрещает ввод символов в <see cref="EmailTextBox"/>
+        /// </summary>
+        private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Запрещает ввод символов в <see cref="VKTextBox"/>
+        /// </summary>
+        private void VKTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
