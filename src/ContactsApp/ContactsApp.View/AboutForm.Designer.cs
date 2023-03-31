@@ -47,12 +47,13 @@
             // 
             // ButtonsPanel
             // 
-            this.ButtonsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ButtonsPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ButtonsPanel.Controls.Add(this.OKButton);
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonsPanel.Location = new System.Drawing.Point(0, 391);
+            this.ButtonsPanel.Location = new System.Drawing.Point(0, 317);
+            this.ButtonsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonsPanel.Name = "ButtonsPanel";
-            this.ButtonsPanel.Size = new System.Drawing.Size(617, 66);
+            this.ButtonsPanel.Size = new System.Drawing.Size(463, 54);
             this.ButtonsPanel.TabIndex = 20;
             // 
             // OKButton
@@ -62,10 +63,11 @@
             this.OKButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OKButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.OKButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OKButton.Location = new System.Drawing.Point(514, 20);
+            this.OKButton.Location = new System.Drawing.Point(386, 16);
+            this.OKButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.OKButton.Name = "OKButton";
             this.OKButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.OKButton.Size = new System.Drawing.Size(91, 26);
+            this.OKButton.Size = new System.Drawing.Size(68, 21);
             this.OKButton.TabIndex = 21;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = false;
@@ -75,72 +77,80 @@
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TitleLabel.Location = new System.Drawing.Point(12, 37);
+            this.TitleLabel.Location = new System.Drawing.Point(9, 30);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(162, 31);
+            this.TitleLabel.Size = new System.Drawing.Size(135, 26);
             this.TitleLabel.TabIndex = 21;
             this.TitleLabel.Text = "ContactsApp";
             // 
             // VersionLabel
             // 
             this.VersionLabel.AutoSize = true;
-            this.VersionLabel.Location = new System.Drawing.Point(16, 68);
+            this.VersionLabel.Location = new System.Drawing.Point(12, 55);
+            this.VersionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(34, 16);
+            this.VersionLabel.Size = new System.Drawing.Size(31, 13);
             this.VersionLabel.TabIndex = 22;
             this.VersionLabel.Text = "v 1.0";
             // 
             // AuthorLabel
             // 
             this.AuthorLabel.AutoSize = true;
-            this.AuthorLabel.Location = new System.Drawing.Point(16, 105);
+            this.AuthorLabel.Location = new System.Drawing.Point(12, 85);
+            this.AuthorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AuthorLabel.Name = "AuthorLabel";
-            this.AuthorLabel.Size = new System.Drawing.Size(48, 16);
+            this.AuthorLabel.Size = new System.Drawing.Size(41, 13);
             this.AuthorLabel.TabIndex = 23;
             this.AuthorLabel.Text = "Author:";
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(16, 133);
+            this.EmailLabel.Location = new System.Drawing.Point(12, 108);
+            this.EmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(48, 16);
+            this.EmailLabel.Size = new System.Drawing.Size(38, 13);
             this.EmailLabel.TabIndex = 24;
             this.EmailLabel.Text = "E-mail:";
             // 
             // AuthorNameLabel
             // 
             this.AuthorNameLabel.AutoSize = true;
-            this.AuthorNameLabel.Location = new System.Drawing.Point(120, 105);
+            this.AuthorNameLabel.Location = new System.Drawing.Point(90, 85);
+            this.AuthorNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AuthorNameLabel.Name = "AuthorNameLabel";
-            this.AuthorNameLabel.Size = new System.Drawing.Size(100, 16);
+            this.AuthorNameLabel.Size = new System.Drawing.Size(82, 13);
             this.AuthorNameLabel.TabIndex = 25;
             this.AuthorNameLabel.Text = "Nikita Manakov";
             // 
             // AuthorEmailLabel
             // 
             this.AuthorEmailLabel.AutoSize = true;
-            this.AuthorEmailLabel.Location = new System.Drawing.Point(120, 133);
+            this.AuthorEmailLabel.Location = new System.Drawing.Point(90, 108);
+            this.AuthorEmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AuthorEmailLabel.Name = "AuthorEmailLabel";
-            this.AuthorEmailLabel.Size = new System.Drawing.Size(160, 16);
+            this.AuthorEmailLabel.Size = new System.Drawing.Size(127, 13);
             this.AuthorEmailLabel.TabIndex = 26;
             this.AuthorEmailLabel.Text = "nnmanakovv@gmail.com";
             // 
             // GithubLabel
             // 
             this.GithubLabel.AutoSize = true;
-            this.GithubLabel.Location = new System.Drawing.Point(16, 160);
+            this.GithubLabel.Location = new System.Drawing.Point(12, 130);
+            this.GithubLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GithubLabel.Name = "GithubLabel";
-            this.GithubLabel.Size = new System.Drawing.Size(48, 16);
+            this.GithubLabel.Size = new System.Drawing.Size(41, 13);
             this.GithubLabel.TabIndex = 27;
             this.GithubLabel.Text = "Github:";
             // 
             // GithubLinkLabel
             // 
             this.GithubLinkLabel.AutoSize = true;
-            this.GithubLinkLabel.Location = new System.Drawing.Point(120, 160);
+            this.GithubLinkLabel.Location = new System.Drawing.Point(90, 130);
+            this.GithubLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GithubLinkLabel.Name = "GithubLinkLabel";
-            this.GithubLinkLabel.Size = new System.Drawing.Size(165, 16);
+            this.GithubLinkLabel.Size = new System.Drawing.Size(138, 13);
             this.GithubLinkLabel.TabIndex = 28;
             this.GithubLinkLabel.TabStop = true;
             this.GithubLinkLabel.Text = "https://github.com/settesss";
@@ -151,15 +161,17 @@
             this.MITTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.MITTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.MITTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MITTextBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.MITTextBox.Location = new System.Drawing.Point(19, 196);
+            this.MITTextBox.Location = new System.Drawing.Point(14, 159);
+            this.MITTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MITTextBox.Multiline = true;
             this.MITTextBox.Name = "MITTextBox";
             this.MITTextBox.ReadOnly = true;
             this.MITTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.MITTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MITTextBox.Size = new System.Drawing.Size(586, 162);
+            this.MITTextBox.Size = new System.Drawing.Size(440, 132);
             this.MITTextBox.TabIndex = 29;
             this.MITTextBox.Text = resources.GetString("MITTextBox.Text");
             // 
@@ -167,9 +179,10 @@
             // 
             this.PictureRightsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PictureRightsLabel.AutoSize = true;
-            this.PictureRightsLabel.Location = new System.Drawing.Point(14, 361);
+            this.PictureRightsLabel.Location = new System.Drawing.Point(10, 293);
+            this.PictureRightsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PictureRightsLabel.Name = "PictureRightsLabel";
-            this.PictureRightsLabel.Size = new System.Drawing.Size(233, 16);
+            this.PictureRightsLabel.Size = new System.Drawing.Size(182, 13);
             this.PictureRightsLabel.TabIndex = 30;
             this.PictureRightsLabel.Text = "All used images are downloaded from";
             // 
@@ -177,9 +190,10 @@
             // 
             this.PictureRightsLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PictureRightsLinkLabel.AutoSize = true;
-            this.PictureRightsLinkLabel.Location = new System.Drawing.Point(245, 361);
+            this.PictureRightsLinkLabel.Location = new System.Drawing.Point(184, 293);
+            this.PictureRightsLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PictureRightsLinkLabel.Name = "PictureRightsLinkLabel";
-            this.PictureRightsLinkLabel.Size = new System.Drawing.Size(75, 16);
+            this.PictureRightsLinkLabel.Size = new System.Drawing.Size(61, 13);
             this.PictureRightsLinkLabel.TabIndex = 31;
             this.PictureRightsLinkLabel.TabStop = true;
             this.PictureRightsLinkLabel.Text = "icons8.com";
@@ -187,9 +201,10 @@
             // 
             // AboutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 457);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(463, 371);
             this.Controls.Add(this.PictureRightsLinkLabel);
             this.Controls.Add(this.PictureRightsLabel);
             this.Controls.Add(this.MITTextBox);
@@ -202,8 +217,9 @@
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.ButtonsPanel);
-            this.MaximumSize = new System.Drawing.Size(635, 504);
-            this.MinimumSize = new System.Drawing.Size(400, 450);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(480, 417);
+            this.MinimumSize = new System.Drawing.Size(304, 373);
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
