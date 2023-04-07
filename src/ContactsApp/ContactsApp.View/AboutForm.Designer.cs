@@ -50,10 +50,10 @@
             this.ButtonsPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ButtonsPanel.Controls.Add(this.OKButton);
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonsPanel.Location = new System.Drawing.Point(0, 317);
-            this.ButtonsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonsPanel.Location = new System.Drawing.Point(0, 353);
+            this.ButtonsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonsPanel.Name = "ButtonsPanel";
-            this.ButtonsPanel.Size = new System.Drawing.Size(463, 54);
+            this.ButtonsPanel.Size = new System.Drawing.Size(509, 46);
             this.ButtonsPanel.TabIndex = 20;
             // 
             // OKButton
@@ -63,8 +63,8 @@
             this.OKButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OKButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.OKButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OKButton.Location = new System.Drawing.Point(386, 16);
-            this.OKButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OKButton.Location = new System.Drawing.Point(432, 12);
+            this.OKButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 13);
             this.OKButton.Name = "OKButton";
             this.OKButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.OKButton.Size = new System.Drawing.Size(68, 21);
@@ -77,8 +77,8 @@
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TitleLabel.Location = new System.Drawing.Point(9, 30);
-            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TitleLabel.Location = new System.Drawing.Point(10, 29);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 35, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(135, 26);
             this.TitleLabel.TabIndex = 21;
@@ -161,17 +161,17 @@
             this.MITTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MITTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.MITTextBox.BackColor = System.Drawing.Color.White;
             this.MITTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MITTextBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.MITTextBox.Location = new System.Drawing.Point(14, 159);
-            this.MITTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MITTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.MITTextBox.Multiline = true;
             this.MITTextBox.Name = "MITTextBox";
             this.MITTextBox.ReadOnly = true;
             this.MITTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.MITTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MITTextBox.Size = new System.Drawing.Size(440, 132);
+            this.MITTextBox.Size = new System.Drawing.Size(486, 160);
             this.MITTextBox.TabIndex = 29;
             this.MITTextBox.Text = resources.GetString("MITTextBox.Text");
             // 
@@ -179,7 +179,7 @@
             // 
             this.PictureRightsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PictureRightsLabel.AutoSize = true;
-            this.PictureRightsLabel.Location = new System.Drawing.Point(10, 293);
+            this.PictureRightsLabel.Location = new System.Drawing.Point(12, 321);
             this.PictureRightsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PictureRightsLabel.Name = "PictureRightsLabel";
             this.PictureRightsLabel.Size = new System.Drawing.Size(182, 13);
@@ -190,7 +190,7 @@
             // 
             this.PictureRightsLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PictureRightsLinkLabel.AutoSize = true;
-            this.PictureRightsLinkLabel.Location = new System.Drawing.Point(184, 293);
+            this.PictureRightsLinkLabel.Location = new System.Drawing.Point(198, 321);
             this.PictureRightsLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PictureRightsLinkLabel.Name = "PictureRightsLinkLabel";
             this.PictureRightsLinkLabel.Size = new System.Drawing.Size(61, 13);
@@ -204,7 +204,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(463, 371);
+            this.ClientSize = new System.Drawing.Size(509, 399);
             this.Controls.Add(this.PictureRightsLinkLabel);
             this.Controls.Add(this.PictureRightsLabel);
             this.Controls.Add(this.MITTextBox);
@@ -217,9 +217,8 @@
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.ButtonsPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(480, 417);
-            this.MinimumSize = new System.Drawing.Size(304, 373);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

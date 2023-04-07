@@ -204,6 +204,7 @@
             // 
             // PhoneMaskedTextBox
             // 
+            this.PhoneMaskedTextBox.BackColor = System.Drawing.Color.White;
             this.PhoneMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PhoneMaskedTextBox.Location = new System.Drawing.Point(112, 133);
             this.PhoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
@@ -216,6 +217,7 @@
             // 
             // BirthDateMaskedTextBox
             // 
+            this.BirthDateMaskedTextBox.BackColor = System.Drawing.Color.White;
             this.BirthDateMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BirthDateMaskedTextBox.Location = new System.Drawing.Point(112, 182);
             this.BirthDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
@@ -239,7 +241,7 @@
             this.NotificationPanel.Location = new System.Drawing.Point(6, 370);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(538, 80);
+            this.NotificationPanel.Size = new System.Drawing.Size(540, 80);
             this.NotificationPanel.TabIndex = 11;
             // 
             // BirthdayUsersLabel
@@ -282,7 +284,7 @@
             this.NotificationCloseButton.FlatAppearance.BorderSize = 0;
             this.NotificationCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NotificationCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32_empty;
-            this.NotificationCloseButton.Location = new System.Drawing.Point(509, 1);
+            this.NotificationCloseButton.Location = new System.Drawing.Point(508, 5);
             this.NotificationCloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationCloseButton.Name = "NotificationCloseButton";
             this.NotificationCloseButton.Size = new System.Drawing.Size(26, 28);
@@ -342,11 +344,11 @@
             this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EmailTextBox.Location = new System.Drawing.Point(112, 84);
+            this.EmailTextBox.Location = new System.Drawing.Point(112, 86);
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmailTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(432, 20);
+            this.EmailTextBox.Size = new System.Drawing.Size(428, 22);
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
@@ -355,7 +357,7 @@
             this.EmailLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(112, 69);
+            this.EmailLabel.Location = new System.Drawing.Point(112, 71);
             this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(39, 13);
@@ -370,7 +372,7 @@
             this.FullNameTextBox.Location = new System.Drawing.Point(112, 25);
             this.FullNameTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(432, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(428, 22);
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
             // 
