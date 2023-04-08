@@ -63,7 +63,7 @@
             this.OKButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OKButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.OKButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OKButton.Location = new System.Drawing.Point(432, 12);
+            this.OKButton.Location = new System.Drawing.Point(430, 13);
             this.OKButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 13);
             this.OKButton.Name = "OKButton";
             this.OKButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -171,7 +171,7 @@
             this.MITTextBox.ReadOnly = true;
             this.MITTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.MITTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MITTextBox.Size = new System.Drawing.Size(486, 160);
+            this.MITTextBox.Size = new System.Drawing.Size(482, 160);
             this.MITTextBox.TabIndex = 29;
             this.MITTextBox.Text = resources.GetString("MITTextBox.Text");
             // 

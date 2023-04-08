@@ -30,25 +30,12 @@ namespace ContactsApp.Model
         /// <summary>
         /// Дата рождения.
         /// </summary>
-        private DateTime _birthDate;
+        private DateTime _dateOfBirth;
 
         /// <summary>
         /// Уникальный идентификатор пользователя VK.
         /// </summary>
         private string _vkId;
-
-        /// <summary>
-        /// Создает пустой экземпляр <see cref="Contact">.
-        /// </summary>
-        public Contact() { }
-
-        /// <summary>
-        /// Возвращает новый объект, который является копией текущего объекта.
-        /// </summary>
-        public object Clone()
-        {
-            return new Contact(_fullName, _email, _phoneNumber, _birthDate, _vkId);
-        }
 
         /// <summary>
         /// Возвращает или задает полное имя.
@@ -104,21 +91,14 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает номер телефона.
         /// </summary>
-        public string PhoneNumber
-        {
-            get { return _phoneNumber; }
-            set
-            {
-                _phoneNumber = value;
-            }
-        }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Возвращает или задает дату рождения.
         /// </summary>
-        public DateTime BirthDate
+        public DateTime DateOfBirth
         {
-            get { return _birthDate; }
+            get { return _dateOfBirth; }
             set
             {
                 DateTime dateTime = new DateTime(0001, 01, 01);
@@ -126,11 +106,11 @@ namespace ContactsApp.Model
                 DateTime maxDate = DateTime.Now;
                 if (value > minDate && value <= maxDate)
                 {
-                    _birthDate = value;
+                    _dateOfBirth = value;
                 }
                 else if (value == dateTime)
                 {
-                    _birthDate = minDate;
+                    _dateOfBirth = minDate;
                 }
                 else
                 {
@@ -161,15 +141,33 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// Создает экземпляр <see cref="Contact">.
+        /// Создает пустой экземпляр <see cref="Contact"/>.
         /// </summary>
-        public Contact(string name, string mail, string phone, DateTime birth, string vk)
+        public Contact() { }
+
+        /// <summary>
+        /// Создает экземпляр <see cref="Contact"/>.
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="email"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="vkId"></param>
+        public Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string vkId)
         {
-            _fullName = name;
-            _email = mail;
-            _phoneNumber = phone;
-            _birthDate = birth;
-            _vkId = vk;
+            _fullName = fullName;
+            _email = email;
+            _phoneNumber = phoneNumber;
+            _dateOfBirth = dateOfBirth;
+            _vkId = vkId;
+        }
+
+        /// <summary>
+        /// Возвращает новый объект, который является копией текущего объекта.
+        /// </summary>
+        public object Clone()
+        {
+            return new Contact(_fullName, _email, _phoneNumber, _dateOfBirth, _vkId);
         }
     }
 }

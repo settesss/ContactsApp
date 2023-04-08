@@ -69,7 +69,7 @@ namespace ContactsApp.View
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
             PhoneMaskedTextBox.Text = _contact.PhoneNumber;
-            BirthDateMaskedTextBox.Text = _contact.BirthDate.ToString();
+            BirthDateMaskedTextBox.Text = _contact.DateOfBirth.ToString();
             VKTextBox.Text = _contact.VKID;
         }
 
@@ -114,7 +114,7 @@ namespace ContactsApp.View
             _contact.FullName = FullNameTextBox.Text;
             _contact.Email = EmailTextBox.Text;
             _contact.PhoneNumber = PhoneMaskedTextBox.Text;
-            _contact.BirthDate = 
+            _contact.DateOfBirth = 
                 DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null); 
             _contact.VKID = VKTextBox.Text;
         }
@@ -206,7 +206,7 @@ namespace ContactsApp.View
             {
                 if (BirthDateMaskedTextBox.MaskCompleted)
                 {
-                    _contact.BirthDate = 
+                    _contact.DateOfBirth = 
                         DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null);
                     _birthDateError = null;
                     BirthDateMaskedTextBox.BackColor = Color.White;
@@ -243,7 +243,7 @@ namespace ContactsApp.View
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
-            AddPhotoButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+            AddPhotoButton.BackColor = Color.Transparent;
         }
 
         /// <summary>

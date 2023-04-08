@@ -82,7 +82,7 @@ namespace ContactsApp.View
                 FullNameTextBox.Text = _project.Contacts[index].FullName;
                 EmailTextBox.Text = _project.Contacts[index].Email;
                 PhoneMaskedTextBox.Text = _project.Contacts[index].PhoneNumber;
-                BirthDateMaskedTextBox.Text = _project.Contacts[index].BirthDate.ToString();
+                BirthDateMaskedTextBox.Text = _project.Contacts[index].DateOfBirth.ToString();
                 VKTextBox.Text = _project.Contacts[index].VKID;
             }
             else
@@ -90,7 +90,7 @@ namespace ContactsApp.View
                 FullNameTextBox.Text = _currentContacts[index].FullName;
                 EmailTextBox.Text = _currentContacts[index].Email;
                 PhoneMaskedTextBox.Text = _currentContacts[index].PhoneNumber;
-                BirthDateMaskedTextBox.Text = _currentContacts[index].BirthDate.ToString();
+                BirthDateMaskedTextBox.Text = _currentContacts[index].DateOfBirth.ToString();
                 VKTextBox.Text = _currentContacts[index].VKID;
             }
         }

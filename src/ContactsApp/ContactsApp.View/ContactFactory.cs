@@ -69,7 +69,7 @@ namespace ContactsApp.View
             user.FullName = _names[new Random().Next(0, _names.Length)];
             user.Email = _mails[new Random().Next(0, _mails.Length)];
             user.PhoneNumber = _numbers[new Random().Next(0, _numbers.Length)];
-            user.BirthDate = _dates[new Random().Next(0, _dates.Length)];
+            user.DateOfBirth = _dates[new Random().Next(0, _dates.Length)];
             user.VKID = _ids[new Random().Next(0, _ids.Length)];
         }
     }

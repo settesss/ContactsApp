@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace ContactsApp.Model
 {
     /// <summary>
-    /// Описывает менеджер проекта.
+    /// Описывает сериализатор проекта, реализующий сохранение объекта <see cref="Project"/>
+    /// в файл и метод загрузки проекта из файла.
     /// </summary>
     internal class ProjectSerializer
     {
