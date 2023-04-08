@@ -126,7 +126,7 @@
             this.PhoneMaskedTextBox.MaximumSize = new System.Drawing.Size(203, 2);
             this.PhoneMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
-            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(180, 22);
+            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(180, 20);
             this.PhoneMaskedTextBox.TabIndex = 14;
             this.PhoneMaskedTextBox.TextChanged += new System.EventHandler(this.PhoneMaskedTextBox_TextChanged);
             // 
@@ -150,7 +150,7 @@
             this.VKTextBox.MaximumSize = new System.Drawing.Size(203, 2);
             this.VKTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(180, 22);
+            this.VKTextBox.Size = new System.Drawing.Size(180, 20);
             this.VKTextBox.TabIndex = 18;
             this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
             // 
@@ -222,7 +222,7 @@
             this.BirthDateMaskedTextBox.MaximumSize = new System.Drawing.Size(203, 2);
             this.BirthDateMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.BirthDateMaskedTextBox.Name = "BirthDateMaskedTextBox";
-            this.BirthDateMaskedTextBox.Size = new System.Drawing.Size(180, 22);
+            this.BirthDateMaskedTextBox.Size = new System.Drawing.Size(180, 20);
             this.BirthDateMaskedTextBox.TabIndex = 20;
             this.BirthDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
             this.BirthDateMaskedTextBox.TextChanged += new System.EventHandler(this.BirthDateMaskedTextBox_TextChanged);
@@ -261,6 +261,7 @@
             this.Controls.Add(this.UserPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "ContactForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
