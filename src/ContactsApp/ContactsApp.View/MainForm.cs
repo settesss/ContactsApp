@@ -124,7 +124,7 @@ namespace ContactsApp.View
         {
             var form = new ContactForm();
             Contact contactToEdit;
-            contactToEdit = contacts[index].Clone();
+            contactToEdit = (Contact)contacts[index].Clone();
             form.Contact = contactToEdit;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)

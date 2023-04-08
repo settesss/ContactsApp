@@ -10,7 +10,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает контакт телефонной книги.
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Полное имя.
@@ -45,15 +45,9 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает новый объект, который является копией текущего объекта.
         /// </summary>
-        public Contact Clone()
+        public object Clone()
         {
-            Contact clone = new Contact();
-            clone._fullName = _fullName;
-            clone._email = _email;
-            clone._phoneNumber = _phoneNumber;
-            clone._birthDate = _birthDate;
-            clone._vkId = _vkId;
-            return clone;
+            return new Contact(_fullName, _email, _phoneNumber, _birthDate, _vkId);
         }
 
         /// <summary>
@@ -127,11 +121,16 @@ namespace ContactsApp.Model
             get { return _birthDate; }
             set
             {
+                DateTime dateTime = new DateTime(0001, 01, 01);
                 DateTime minDate = new DateTime(1900, 01, 01);
                 DateTime maxDate = DateTime.Now;
                 if (value > minDate && value <= maxDate)
                 {
                     _birthDate = value;
+                }
+                else if (value == dateTime)
+                {
+                    _birthDate = minDate;
                 }
                 else
                 {

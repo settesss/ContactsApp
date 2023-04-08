@@ -237,12 +237,18 @@ namespace ContactsApp.View
             }
         }
 
+        /// <summary>
+        /// Обрабатывает наведение на кнопку <see cref="AddPhotoButton"></see>
+        /// </summary>
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
             AddPhotoButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
         }
 
+        /// <summary>
+        /// Обрабатывает событие при сведении мыши с <see cref="AddPhotoButton"></see>
+        /// </summary>
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
