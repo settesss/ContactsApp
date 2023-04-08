@@ -33,6 +33,21 @@ namespace ContactsApp.Model
         private DateTime _dateOfBirth;
 
         /// <summary>
+        /// Неправильно введённое время.
+        /// </summary>
+        DateTime dateTime = new DateTime(0001, 01, 01);
+
+        /// <summary>
+        /// Минимальная дата для ввода.
+        /// </summary>
+        DateTime minDate = new DateTime(1900, 01, 01);
+
+        /// <summary>
+        /// Максимальная дата для ввода, равная текущей.
+        /// </summary>
+        DateTime maxDate = DateTime.Now;
+
+        /// <summary>
         /// Уникальный идентификатор пользователя VK.
         /// </summary>
         private string _vkId;
@@ -45,25 +60,23 @@ namespace ContactsApp.Model
             get { return _fullName; }
             set 
             {
-                if (value.Length <= 100)
+                if (value.Length > 100)
                 {
                     /*Непроработанный до конца метод, работает только с первой буквой*/
-                    if (value != "")
-                    {
-                        value = value[0].ToString().ToUpper() + value.Substring(1);
-                        _fullName = value;
-                    }
-                    else
-                    {
-                        _fullName = "Empty Name";
-                    }
-                }
-                else
-                {
                     string exception = "Your name '" + value + "' is too long. " +
                         "Try to enter shorter, please.";
                     throw new ArgumentException(exception);
                 }
+                if (value != "")
+                {
+                    value = value[0].ToString().ToUpper() + value.Substring(1);
+                }
+                else
+                {
+                    _fullName = "Empty Name";
+                    return;
+                }
+                _fullName = value;
             }
         }
         
@@ -75,16 +88,13 @@ namespace ContactsApp.Model
             get { return _email; }
             set
             {
-                if (value.Length <= 100)
-                {
-                    _email = value;
-                }
-                else
+                if (value.Length > 100)
                 {
                     string exception = "E-mail '" + value + "' is too long. " +
                         "Try to enter shorter, please.";
                     throw new ArgumentException(exception);
                 }
+                _email = value;
             }
         }
 
@@ -101,21 +111,19 @@ namespace ContactsApp.Model
             get { return _dateOfBirth; }
             set
             {
-                DateTime dateTime = new DateTime(0001, 01, 01);
-                DateTime minDate = new DateTime(1900, 01, 01);
-                DateTime maxDate = DateTime.Now;
-                if (value > minDate && value <= maxDate)
-                {
-                    _dateOfBirth = value;
-                }
-                else if (value == dateTime)
+                if (value == dateTime)
                 {
                     _dateOfBirth = minDate;
+                    return;
                 }
-                else
+                if (value < minDate || value >= maxDate)
                 {
-                    throw new ArgumentException("The date can't be like this.");
+                    string exception = "The entered date must be less than" +
+                        " the current one and more than 1900.01.01. Date entered: "
+                        + value.ToString();
+                    throw new ArgumentException(exception);
                 }
+                _dateOfBirth = value;
             }
         }
 
@@ -127,16 +135,13 @@ namespace ContactsApp.Model
             get { return _vkId; }
             set
             {
-                if (value.Length <= 50)
-                {
-                    _vkId = value;
-                }
-                else
+                if (value.Length > 50)
                 {
                     string exception = "VK-ID '" + value + "' is too long. " +
-                        "Try to enter shorter, please.";
+                         "Try to enter shorter, please.";
                     throw new ArgumentException(exception);
                 }
+                _vkId = value;
             }
         }
 
