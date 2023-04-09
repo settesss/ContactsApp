@@ -1,15 +1,7 @@
 ﻿using ContactsApp.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Management.Instrumentation;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContactsApp.View
@@ -58,7 +50,7 @@ namespace ContactsApp.View
                 if (notificationClose == false)
                 {
                     BirthdayUsersLabel.Text =
-                        _project.FindContactsOfBirthdayPeople(UsersListBox, _project.Contacts);
+                        _project.FindContactsOfBirthdayPeople(_project.Contacts);
                 }
             }
             else

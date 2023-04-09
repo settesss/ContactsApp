@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ContactsApp.Model
 {
@@ -44,21 +41,14 @@ namespace ContactsApp.Model
         /// Ищет контакты людей, у которых сегодня день рождения, и возвращает строку 
         /// с объединенными контактами.
         /// </summary>
-        /// <param name="listBox"></param>
         /// <param name="contacts"></param>
         /// <returns></returns>
-        public string FindContactsOfBirthdayPeople(ListBox listBox, List<Contact> contacts)
+        public string FindContactsOfBirthdayPeople(List<Contact> contacts)
         {
-            string birthdayList = "";
-            for (int i = 0; i < listBox.Items.Count; i++)
-            {
-                if (contacts[i].DateOfBirth.Month == DateTime.Today.Month
-                    && contacts[i].DateOfBirth.Day == DateTime.Today.Day)
-                {
-                    birthdayList += listBox.Items[i].ToString() + "; ";
-                }
-            }
-            return birthdayList;
+            var birthdayContacts = contacts.Where(c => c.DateOfBirth.Month == DateTime.Now.Month 
+            && c.DateOfBirth.Day == DateTime.Now.Day);
+            var result = string.Join(", ", birthdayContacts.Select(c => c.FullName));
+            return result;
         }
     }
 }
