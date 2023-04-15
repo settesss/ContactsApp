@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ContactsApp.Model
 {
@@ -30,17 +31,17 @@ namespace ContactsApp.Model
         /// <summary>
         /// Неправильно введённое время.
         /// </summary>
-        DateTime dateTime = new DateTime(0001, 01, 01);
+        private DateTime _dateTime = new DateTime(0001, 01, 01);
 
         /// <summary>
         /// Минимальная дата для ввода.
         /// </summary>
-        DateTime minDate = new DateTime(1900, 01, 01);
+        private DateTime _minDate = new DateTime(1900, 01, 01);
 
         /// <summary>
         /// Максимальная дата для ввода, равная текущей.
         /// </summary>
-        DateTime maxDate = DateTime.Now;
+        private DateTime _maxDate = DateTime.Now;
 
         /// <summary>
         /// Уникальный идентификатор пользователя VK.
@@ -57,21 +58,16 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 100)
                 {
-                    /*Непроработанный до конца метод, работает только с первой буквой*/
-                    string exception = "Your name '" + value + "' is too long. " +
-                        "Try to enter shorter, please.";
-                    throw new ArgumentException(exception);
+                    throw new ArgumentException($"Your name '{value}' is too long. " +
+                        $"Try to enter a shorter name, please!");
                 }
-                if (value != "")
-                {
-                    value = value[0].ToString().ToUpper() + value.Substring(1);
-                }
-                else
+                if (string.IsNullOrEmpty(value))
                 {
                     _fullName = "Empty Name";
                     return;
                 }
-                _fullName = value;
+                var textInfo = CultureInfo.CurrentCulture.TextInfo;
+                _fullName = textInfo.ToTitleCase(value);
             }
         }
         
@@ -85,9 +81,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 100)
                 {
-                    string exception = "E-mail '" + value + "' is too long. " +
-                        "Try to enter shorter, please.";
-                    throw new ArgumentException(exception);
+                    throw new ArgumentException($"Your e-mail '{value}' is too long. " +
+                        $"Try to enter a shorter e-mail, please!");
                 }
                 _email = value;
             }
@@ -106,17 +101,16 @@ namespace ContactsApp.Model
             get { return _dateOfBirth; }
             set
             {
-                if (value == dateTime)
+                if (value == _dateTime)
                 {
-                    _dateOfBirth = minDate;
+                    _dateOfBirth = _minDate;
                     return;
                 }
-                if (value < minDate || value >= maxDate)
+                if (value < _minDate || value >= _maxDate)
                 {
-                    string exception = "The entered date must be less than" +
-                        " the current one and more than 1900.01.01. Date entered: "
-                        + value.ToString();
-                    throw new ArgumentException(exception);
+                    throw new ArgumentException($"The entered date " +
+                        $"'{value.ToShortDateString()}' " +
+                        $"must be less than the current one and more than 1900.01.01!");
                 }
                 _dateOfBirth = value;
             }
@@ -132,9 +126,8 @@ namespace ContactsApp.Model
             {
                 if (value.Length > 50)
                 {
-                    string exception = "VK-ID '" + value + "' is too long. " +
-                         "Try to enter shorter, please.";
-                    throw new ArgumentException(exception);
+                    throw new ArgumentException($"Your VK-ID '{value}' is too long. " +
+                        $"Try to enter a shorter ID, please!");
                 }
                 _vkId = value;
             }
@@ -153,7 +146,8 @@ namespace ContactsApp.Model
         /// <param name="phoneNumber"></param>
         /// <param name="dateOfBirth"></param>
         /// <param name="vkId"></param>
-        public Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string vkId)
+        public Contact(string fullName, string email, string phoneNumber, 
+            DateTime dateOfBirth, string vkId)
         {
             _fullName = fullName;
             _email = email;

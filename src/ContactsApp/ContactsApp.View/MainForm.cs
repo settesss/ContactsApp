@@ -69,22 +69,12 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateSelectedContact(int index)
         {
-            if (FindTextBox.Text == "")
-            {
-                FullNameTextBox.Text = _project.Contacts[index].FullName;
-                EmailTextBox.Text = _project.Contacts[index].Email;
-                PhoneMaskedTextBox.Text = _project.Contacts[index].PhoneNumber;
-                BirthDateMaskedTextBox.Text = _project.Contacts[index].DateOfBirth.ToString();
-                VKTextBox.Text = _project.Contacts[index].VKID;
-            }
-            else
-            {
-                FullNameTextBox.Text = _currentContacts[index].FullName;
-                EmailTextBox.Text = _currentContacts[index].Email;
-                PhoneMaskedTextBox.Text = _currentContacts[index].PhoneNumber;
-                BirthDateMaskedTextBox.Text = _currentContacts[index].DateOfBirth.ToString();
-                VKTextBox.Text = _currentContacts[index].VKID;
-            }
+            var contact = (FindTextBox.Text == "") ? _project.Contacts[index] : _currentContacts[index];
+            FullNameTextBox.Text = contact.FullName;
+            EmailTextBox.Text = contact.Email;
+            PhoneMaskedTextBox.Text = contact.PhoneNumber;
+            BirthDateMaskedTextBox.Text = contact.DateOfBirth.ToString();
+            VKTextBox.Text = contact.VKID;
         }
 
         /// <summary>
@@ -262,10 +252,7 @@ namespace ContactsApp.View
         private void NotificationCloseButton_Click(object sender, EventArgs e)
         {
             notificationClose = true;
-            NotificationCloseButton.Visible = false;
             NotificationPanel.Visible = false;
-            NotificationBirthLabel.Visible = false;
-            NotificationPictureBox.Visible = false;
         }
 
         /// <summary>
