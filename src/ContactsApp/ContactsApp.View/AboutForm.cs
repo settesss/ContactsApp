@@ -18,14 +18,6 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Получает все события клавиш при загрузке формы.
-        /// </summary>
-        private void AboutForm_Load(object sender, EventArgs e)
-        {
-            this.KeyPreview = true;
-        }
-
-        /// <summary>
         /// Переходит по ссылке на Github.
         /// </summary>
         private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

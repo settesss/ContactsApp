@@ -144,12 +144,12 @@ namespace ContactsApp.View
             {
                 _contact.FullName = FullNameTextBox.Text;
                 _fullNameError = null;
-                FullNameTextBox.BackColor = Color.White;
+                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _fullNameError = exception.Message;
-                FullNameTextBox.BackColor = Color.LightPink;
+                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
@@ -162,12 +162,12 @@ namespace ContactsApp.View
             {
                 _contact.Email = EmailTextBox.Text;
                 _emailError = null;
-                EmailTextBox.BackColor = Color.White;
+                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _emailError = exception.Message;
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
@@ -182,13 +182,13 @@ namespace ContactsApp.View
                 {
                     _contact.PhoneNumber = PhoneMaskedTextBox.Text;
                     _phoneNumberError = null;
-                    PhoneMaskedTextBox.BackColor = Color.White;
+                    PhoneMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
                 }
             }
             catch (Exception exception)
             {
                 _phoneNumberError = exception.Message;
-                PhoneMaskedTextBox.BackColor = Color.LightPink;
+                PhoneMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
@@ -204,13 +204,13 @@ namespace ContactsApp.View
                     _contact.DateOfBirth = 
                         DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null);
                     _birthDateError = null;
-                    BirthDateMaskedTextBox.BackColor = Color.White;
+                    BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
                 }
             }
             catch (Exception exception)
             {
                 _birthDateError = exception.Message;
-                BirthDateMaskedTextBox.BackColor = Color.LightPink;
+                BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
@@ -223,12 +223,12 @@ namespace ContactsApp.View
             {
                 _contact.VKID = VKTextBox.Text;
                 _vkIdError = null;
-                VKTextBox.BackColor = Color.White;
+                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _vkIdError = exception.Message;
-                VKTextBox.BackColor = Color.LightPink;
+                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
@@ -247,7 +247,7 @@ namespace ContactsApp.View
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
-            AddPhotoButton.BackColor = Color.White;
+            AddPhotoButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
         }
     }
 }
