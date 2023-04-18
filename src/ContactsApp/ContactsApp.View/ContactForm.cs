@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ContactsApp.View
@@ -15,11 +16,10 @@ namespace ContactsApp.View
         /// </summary>
         private Model.Contact _contact = new Model.Contact();
 
-        public Model.Contact Contact
-        {
-            get { return _contact; }
-            set { _contact = value; }
-        }
+        /// <summary>
+        /// Возвращает контакт.
+        /// </summary>
+        public Model.Contact Contact { get; set; }
 
         /// <summary>
         /// Текст ошибки ввода в <see cref="FullNameTextBox"/>.
@@ -71,9 +71,9 @@ namespace ContactsApp.View
         /// <summary>
         /// Проверяет форму на все возможные ошибки.
         /// </summary>
+        /// <returns></returns>
         private bool CheckFormOnErrors()
         {
-            string mixedError = "";
             List<string> errorsList = new List<string>() 
             {
                 _fullNameError,
@@ -82,15 +82,8 @@ namespace ContactsApp.View
                 _birthDateError,
                 _vkIdError
             };
-            for (int i = 0; i < errorsList.Count; i++)
-            {
-                if (errorsList[i] != null)
-                {
-                    mixedError += errorsList[i];
-                    mixedError += "\n"; 
-                }
-            }
-            if (mixedError == "")
+            var mixedError = string.Join("\n", errorsList.Where(c => c != null));
+            if (string.IsNullOrEmpty(mixedError))
             {
                 return true;
             }
@@ -117,6 +110,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Закрывает форму при нажатии на кнопку, не сохраняет изменения.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -125,6 +120,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Сохраняет контакт при нажатии на кнопку.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (CheckFormOnErrors() == true)
@@ -138,42 +135,48 @@ namespace ContactsApp.View
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="FullNameTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 _contact.FullName = FullNameTextBox.Text;
                 _fullNameError = null;
-                FullNameTextBox.BackColor = Color.White;
+                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _fullNameError = exception.Message;
-                FullNameTextBox.BackColor = Color.LightPink;
+                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="EmailTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 _contact.Email = EmailTextBox.Text;
                 _emailError = null;
-                EmailTextBox.BackColor = Color.White;
+                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _emailError = exception.Message;
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="PhoneMaskedTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -182,19 +185,21 @@ namespace ContactsApp.View
                 {
                     _contact.PhoneNumber = PhoneMaskedTextBox.Text;
                     _phoneNumberError = null;
-                    PhoneMaskedTextBox.BackColor = Color.White;
+                    PhoneMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
                 }
             }
             catch (Exception exception)
             {
                 _phoneNumberError = exception.Message;
-                PhoneMaskedTextBox.BackColor = Color.LightPink;
+                PhoneMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="BirthDateMaskedTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BirthDateMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -204,37 +209,41 @@ namespace ContactsApp.View
                     _contact.DateOfBirth = 
                         DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null);
                     _birthDateError = null;
-                    BirthDateMaskedTextBox.BackColor = Color.White;
+                    BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
                 }
             }
             catch (Exception exception)
             {
                 _birthDateError = exception.Message;
-                BirthDateMaskedTextBox.BackColor = Color.LightPink;
+                BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="VKTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 _contact.VKID = VKTextBox.Text;
                 _vkIdError = null;
-                VKTextBox.BackColor = Color.White;
+                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _vkIdError = exception.Message;
-                VKTextBox.BackColor = Color.LightPink;
+                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 
         /// <summary>
-        /// Обрабатывает наведение на кнопку <see cref="AddPhotoButton"></see>
+        /// Обрабатывает наведение на кнопку <see cref="AddPhotoButton"/>
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
@@ -242,12 +251,14 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает событие при сведении мыши с <see cref="AddPhotoButton"></see>
+        /// Обрабатывает событие при сведении мыши с <see cref="AddPhotoButton"/>
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
-            AddPhotoButton.BackColor = Color.White;
+            AddPhotoButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
         }
     }
 }
