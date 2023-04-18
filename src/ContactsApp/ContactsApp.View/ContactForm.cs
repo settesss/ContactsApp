@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ContactsApp.View
@@ -15,11 +16,10 @@ namespace ContactsApp.View
         /// </summary>
         private Model.Contact _contact = new Model.Contact();
 
-        public Model.Contact Contact
-        {
-            get { return _contact; }
-            set { _contact = value; }
-        }
+        /// <summary>
+        /// Возвращает контакт.
+        /// </summary>
+        public Model.Contact Contact { get; set; }
 
         /// <summary>
         /// Текст ошибки ввода в <see cref="FullNameTextBox"/>.
@@ -73,7 +73,6 @@ namespace ContactsApp.View
         /// </summary>
         private bool CheckFormOnErrors()
         {
-            string mixedError = "";
             List<string> errorsList = new List<string>() 
             {
                 _fullNameError,
@@ -82,15 +81,8 @@ namespace ContactsApp.View
                 _birthDateError,
                 _vkIdError
             };
-            for (int i = 0; i < errorsList.Count; i++)
-            {
-                if (errorsList[i] != null)
-                {
-                    mixedError += errorsList[i];
-                    mixedError += "\n"; 
-                }
-            }
-            if (mixedError == "")
+            var mixedError = string.Join("\n", errorsList.Where(c => c != null));
+            if (string.IsNullOrEmpty(mixedError))
             {
                 return true;
             }
