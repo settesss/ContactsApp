@@ -60,6 +60,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Использует программную генерацию данных.
         /// </summary>
+        /// <param name="user"></param>
         public static void GenerateRandom(Model.Contact user)
         {
             user.FullName = _names[new Random().Next(0, _names.Length)];

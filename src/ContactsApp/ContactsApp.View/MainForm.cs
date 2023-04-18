@@ -39,6 +39,7 @@ namespace ContactsApp.View
         /// Очищает все элементы <see cref="UsersListBox"/>, возвращает 
         /// обновленный список контактов.
         /// </summary>
+        /// <returns></returns>
         private ListBox UpdateListBox()
         {
             UsersListBox.Items.Clear();
@@ -57,6 +58,7 @@ namespace ContactsApp.View
         /// Получает объект по индексу из поля <see cref="_project"/>, заполняет данные 
         /// на правой панели <see cref="MainForm"/>.
         /// </summary>
+        /// <param name="index"></param>
         private void UpdateSelectedContact(int index)
         {
             var contact = (FindTextBox.Text == "") ? _project.Contacts[index] : _currentContacts[index];
@@ -92,6 +94,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Открывает <see cref="ContactForm"/> для редактирования контакта.
         /// </summary>
+        /// <param name="index"></param>
+        /// <param name="contacts"></param>
         private void EditContact(int index, List<Contact> contacts)
         {
             var form = new ContactForm();
@@ -112,6 +116,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Удаляет объект контакта, вызывает форму подтверждения.
         /// </summary>
+        /// <param name="index"></param>
         private void RemoveContact(int index)
         {
             if (index == -1)
@@ -147,6 +152,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Открывает форму <see cref="ContactForm"/> и добавляет контакт.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddUserButton_Click(object sender, EventArgs e)
         {
             ContactForm AddContactForm = new ContactForm();
@@ -163,6 +170,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Открывает форму <see cref="ContactForm"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditUserButton_Click(object sender, EventArgs e)
         {
             var selectedIndex = UsersListBox.SelectedIndex;
@@ -178,6 +187,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Вызывает функцию удаления контакта и обновления <see cref="UsersListBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {   
             RemoveContact(UsersListBox.SelectedIndex);
@@ -187,6 +198,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Открывает форму <see cref="AboutForm"/> нажатием F1.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.F1)
@@ -199,6 +212,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Закрывает уведомление о днях рождения.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NotificationCloseButton_Click(object sender, EventArgs e)
         {
             notificationClose = true;
@@ -209,6 +224,8 @@ namespace ContactsApp.View
         /// Выводит информацию по выбранному в <see cref="UsersListBox"/> индексу
         /// на правую панель <see cref="MainForm"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UsersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedIndex = UsersListBox.SelectedIndex;
@@ -225,6 +242,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Вызывает MessageBox при закрытии <see cref="MainForm"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var result = MessageBox.Show("Do you really want to close the program?",
@@ -233,8 +252,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает введённый текст в <see cref="FindTextBox"/>
+        /// Обрабатывает введённый текст в <see cref="FindTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
             _currentContacts = (FindTextBox.Text == "") ? _project.Contacts : 
@@ -243,8 +264,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает наведение на кнопку <see cref="AddUserButton"></see>
+        /// Обрабатывает наведение на кнопку <see cref="AddUserButton"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddUserButton_MouseEnter(object sender, EventArgs e)
         {
             AddUserButton.Image = Properties.Resources.add_contact_32x32;
@@ -252,8 +275,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает событие при сведении мыши с <see cref="AddUserButton"/>
+        /// Обрабатывает событие при сведении мыши с <see cref="AddUserButton"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddUserButton_MouseLeave(object sender, EventArgs e)
         {
             AddUserButton.Image = Properties.Resources.add_contact_32x32_gray;
@@ -261,8 +286,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает наведение на кнопку <see cref="EditUserButton"></see>
+        /// Обрабатывает наведение на кнопку <see cref="EditUserButton"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditUserButton_MouseEnter(object sender, EventArgs e)
         {
             EditUserButton.Image = Properties.Resources.edit_contact_32x32;
@@ -270,8 +297,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает событие при сведении мыши с <see cref="EditUserButton"/>
+        /// Обрабатывает событие при сведении мыши с <see cref="EditUserButton"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditUserButton_MouseLeave(object sender, EventArgs e)
         {
             EditUserButton.Image = Properties.Resources.edit_contact_32x32_gray;
@@ -279,8 +308,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает наведение на кнопку <see cref="DeleteUserButton"></see>
+        /// Обрабатывает наведение на кнопку <see cref="DeleteUserButton"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteUserButton_MouseEnter(object sender, EventArgs e)
         {
             DeleteUserButton.Image = Properties.Resources.remove_contact_32x32;
@@ -288,8 +319,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает событие при сведении мыши с <see cref="DeleteUserButton"/>
+        /// Обрабатывает событие при сведении мыши с <see cref="DeleteUserButton"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteUserButton_MouseLeave(object sender, EventArgs e)
         {
             DeleteUserButton.Image = Properties.Resources.remove_contact_32x32_gray;
@@ -297,24 +330,30 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Запрещает ввод символов в <see cref="FullNameTextBox"/>
+        /// Запрещает ввод символов в <see cref="FullNameTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FullNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
         /// <summary>
-        /// Запрещает ввод символов в <see cref="EmailTextBox"/>
+        /// Запрещает ввод символов в <see cref="EmailTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
         /// <summary>
-        /// Запрещает ввод символов в <see cref="VKTextBox"/>
+        /// Запрещает ввод символов в <see cref="VKTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VKTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

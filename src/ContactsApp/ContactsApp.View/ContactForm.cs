@@ -71,6 +71,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Проверяет форму на все возможные ошибки.
         /// </summary>
+        /// <returns></returns>
         private bool CheckFormOnErrors()
         {
             List<string> errorsList = new List<string>() 
@@ -109,6 +110,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Закрывает форму при нажатии на кнопку, не сохраняет изменения.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -117,6 +120,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Сохраняет контакт при нажатии на кнопку.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (CheckFormOnErrors() == true)
@@ -130,6 +135,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="FullNameTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -148,6 +155,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="EmailTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -166,6 +175,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="PhoneMaskedTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -187,6 +198,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="BirthDateMaskedTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BirthDateMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -209,6 +222,8 @@ namespace ContactsApp.View
         /// <summary>
         /// Обрабатывает введённые данные в <see cref="VKTextBox"/>.
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -225,8 +240,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает наведение на кнопку <see cref="AddPhotoButton"></see>
+        /// Обрабатывает наведение на кнопку <see cref="AddPhotoButton"/>
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
@@ -234,8 +251,10 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает событие при сведении мыши с <see cref="AddPhotoButton"></see>
+        /// Обрабатывает событие при сведении мыши с <see cref="AddPhotoButton"/>
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
