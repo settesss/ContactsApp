@@ -19,7 +19,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Возвращает контакт.
         /// </summary>
-        public Model.Contact Contact { get; set; }
+        public Model.Contact Contact { get { return _contact; }  set { } }
 
         /// <summary>
         /// Текст ошибки ввода в <see cref="FullNameTextBox"/>.
