@@ -189,10 +189,11 @@ namespace ContactsApp.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DeleteUserButton_Click(object sender, EventArgs e)
-        {   
+        private void RemoveUserButton_Click(object sender, EventArgs e)
+        {
             RemoveContact(UsersListBox.SelectedIndex);
             UpdateListBox();
+            ClearSelectedContact();
         }
 
         /// <summary>
@@ -308,25 +309,25 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает наведение на кнопку <see cref="DeleteUserButton"/>.
+        /// Обрабатывает наведение на кнопку <see cref="RemoveUserButton"/>.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DeleteUserButton_MouseEnter(object sender, EventArgs e)
+        private void RemoveUserButton_MouseEnter(object sender, EventArgs e)
         {
-            DeleteUserButton.Image = Properties.Resources.remove_contact_32x32;
-            DeleteUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.accentRedBackground);
+            RemoveUserButton.Image = Properties.Resources.remove_contact_32x32;
+            RemoveUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.accentRedBackground);
         }
 
         /// <summary>
-        /// Обрабатывает событие при сведении мыши с <see cref="DeleteUserButton"/>.
+        /// Обрабатывает событие при сведении мыши с <see cref="RemoveUserButton"/>.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DeleteUserButton_MouseLeave(object sender, EventArgs e)
+        private void RemoveUserButton_MouseLeave(object sender, EventArgs e)
         {
-            DeleteUserButton.Image = Properties.Resources.remove_contact_32x32_gray;
-            DeleteUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+            RemoveUserButton.Image = Properties.Resources.remove_contact_32x32_gray;
+            RemoveUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
         }
 
         /// <summary>
