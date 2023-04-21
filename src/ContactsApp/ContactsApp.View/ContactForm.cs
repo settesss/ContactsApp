@@ -47,7 +47,20 @@ namespace ContactsApp.View
         private string _vkIdError;
 
         /// <summary>
-        /// Строит пользовательский интерфейс <see cref="ContactForm"/>.
+        /// Строит пользовательский интерфейс <see cref="ContactForm"/>
+        /// с переданными в него данными <see cref="Model.Contact"/>.
+        /// </summary>
+        /// <param name="contact"></param>
+        public ContactForm(Model.Contact contact)
+        {
+            InitializeComponent();
+            _contact = contact;
+            UpdateForm();
+        }
+
+        /// <summary>
+        /// Строит пользовательский интерфейс <see cref="ContactForm"/>
+        /// без параметров.
         /// </summary>
         public ContactForm()
         {

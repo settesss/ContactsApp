@@ -98,7 +98,7 @@ namespace ContactsApp.View
         /// <param name="contacts"></param>
         private void EditContact(int index, List<Contact> contacts)
         {
-            var form = new ContactForm();
+            var form = new ContactForm(contacts[index]);
             Contact contactToEdit;
             contactToEdit = (Contact)contacts[index].Clone();
             form.Contact = contactToEdit;
