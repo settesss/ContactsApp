@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 
 namespace ContactsApp.Model
 {
@@ -91,7 +92,23 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает номер телефона.
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber {
+            get { return _phoneNumber; }
+            set
+            {
+                value = new string(value.Where(char.IsDigit).ToArray());
+                if (value.Length != 11)
+                {
+                    throw new ArgumentException($"Invalid phone number format '{value}'." +
+                        $"\nThe format should be '+7 (XXX) XXX-XX-XX'");
+                }
+                _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
+                    value.Substring(1, 3),
+                    value.Substring(4, 3),
+                    value.Substring(7, 2),
+                    value.Substring(9, 2));
+            }
+        }
 
         /// <summary>
         /// Возвращает или задает дату рождения.

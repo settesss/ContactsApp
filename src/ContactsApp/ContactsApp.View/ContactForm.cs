@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ContactsApp.View
 {
@@ -76,7 +77,7 @@ namespace ContactsApp.View
         {
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
-            PhoneMaskedTextBox.Text = _contact.PhoneNumber;
+            PhoneTextBox.Text = _contact.PhoneNumber;
             BirthDateMaskedTextBox.Text = _contact.DateOfBirth.ToString();
             VKTextBox.Text = _contact.VKID;
         }
@@ -114,7 +115,7 @@ namespace ContactsApp.View
         {
             _contact.FullName = FullNameTextBox.Text;
             _contact.Email = EmailTextBox.Text;
-            _contact.PhoneNumber = PhoneMaskedTextBox.Text;
+            _contact.PhoneNumber = PhoneTextBox.Text;
             _contact.DateOfBirth = 
                 DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null); 
             _contact.VKID = VKTextBox.Text;
@@ -186,25 +187,22 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает введённые данные в <see cref="PhoneMaskedTextBox"/>.
+        /// Обрабатывает введённые данные в <see cref="PhoneTextBox"/>.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PhoneMaskedTextBox_TextChanged(object sender, EventArgs e)
+        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
         {
             try
-            {
-                if (PhoneMaskedTextBox.MaskCompleted)
-                {
-                    _contact.PhoneNumber = PhoneMaskedTextBox.Text;
-                    _phoneNumberError = null;
-                    PhoneMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
-                }
+            { 
+                _contact.PhoneNumber = PhoneTextBox.Text;
+                _phoneNumberError = null;
+                PhoneTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
             }
             catch (Exception exception)
             {
                 _phoneNumberError = exception.Message;
-                PhoneMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                PhoneTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 

@@ -34,7 +34,6 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.PhoneLabel = new System.Windows.Forms.Label();
-            this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.BirthDateLabel = new System.Windows.Forms.Label();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.BirthDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.AddPhotoButton = new System.Windows.Forms.PictureBox();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
             this.ButtonsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).BeginInit();
@@ -114,21 +114,6 @@
             this.PhoneLabel.Size = new System.Drawing.Size(78, 13);
             this.PhoneLabel.TabIndex = 6;
             this.PhoneLabel.Text = "PhoneNumber:";
-            // 
-            // PhoneMaskedTextBox
-            // 
-            this.PhoneMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PhoneMaskedTextBox.Location = new System.Drawing.Point(118, 142);
-            this.PhoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.PhoneMaskedTextBox.Mask = "+7 (999) 000-00-00";
-            this.PhoneMaskedTextBox.MaximumSize = new System.Drawing.Size(203, 2);
-            this.PhoneMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
-            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(180, 20);
-            this.PhoneMaskedTextBox.TabIndex = 14;
-            this.PhoneMaskedTextBox.TextChanged += new System.EventHandler(this.PhoneMaskedTextBox_TextChanged);
             // 
             // BirthDateLabel
             // 
@@ -240,19 +225,30 @@
             this.AddPhotoButton.MouseEnter += new System.EventHandler(this.AddPhotoButton_MouseEnter);
             this.AddPhotoButton.MouseLeave += new System.EventHandler(this.AddPhotoButton_MouseLeave);
             // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.BackColor = System.Drawing.Color.White;
+            this.PhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PhoneTextBox.Location = new System.Drawing.Point(118, 142);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(180, 20);
+            this.PhoneTextBox.TabIndex = 22;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
+            // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(509, 341);
+            this.Controls.Add(this.PhoneTextBox);
             this.Controls.Add(this.AddPhotoButton);
             this.Controls.Add(this.BirthDateMaskedTextBox);
             this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.VKTextBox);
             this.Controls.Add(this.VKLabel);
             this.Controls.Add(this.BirthDateLabel);
-            this.Controls.Add(this.PhoneMaskedTextBox);
             this.Controls.Add(this.PhoneLabel);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.EmailLabel);
@@ -281,7 +277,6 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Label PhoneLabel;
-        private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
         private System.Windows.Forms.Label BirthDateLabel;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.Label VKLabel;
@@ -290,5 +285,6 @@
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.MaskedTextBox BirthDateMaskedTextBox;
         private System.Windows.Forms.PictureBox AddPhotoButton;
+        private System.Windows.Forms.TextBox PhoneTextBox;
     }
 }
