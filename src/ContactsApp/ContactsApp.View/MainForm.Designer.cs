@@ -37,7 +37,6 @@
             this.UsersListBox = new System.Windows.Forms.ListBox();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.FindLabel = new System.Windows.Forms.Label();
-            this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.BirthDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.NotificationPanel = new System.Windows.Forms.Panel();
             this.BirthdayUsersLabel = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.UserPictureBox = new System.Windows.Forms.PictureBox();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
@@ -85,7 +85,7 @@
             // SplitContainer.Panel2
             // 
             this.SplitContainer.Panel2.BackColor = System.Drawing.Color.White;
-            this.SplitContainer.Panel2.Controls.Add(this.PhoneMaskedTextBox);
+            this.SplitContainer.Panel2.Controls.Add(this.PhoneTextBox);
             this.SplitContainer.Panel2.Controls.Add(this.BirthDateMaskedTextBox);
             this.SplitContainer.Panel2.Controls.Add(this.NotificationPanel);
             this.SplitContainer.Panel2.Controls.Add(this.VKTextBox);
@@ -202,19 +202,6 @@
             this.FindLabel.TabIndex = 0;
             this.FindLabel.Text = "Find:";
             // 
-            // PhoneMaskedTextBox
-            // 
-            this.PhoneMaskedTextBox.BackColor = System.Drawing.Color.White;
-            this.PhoneMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PhoneMaskedTextBox.Location = new System.Drawing.Point(112, 133);
-            this.PhoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.PhoneMaskedTextBox.Mask = "+7 (999) 000-00-00";
-            this.PhoneMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
-            this.PhoneMaskedTextBox.ReadOnly = true;
-            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(175, 20);
-            this.PhoneMaskedTextBox.TabIndex = 13;
-            // 
             // BirthDateMaskedTextBox
             // 
             this.BirthDateMaskedTextBox.BackColor = System.Drawing.Color.White;
@@ -241,7 +228,7 @@
             this.NotificationPanel.Location = new System.Drawing.Point(6, 370);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(544, 80);
+            this.NotificationPanel.Size = new System.Drawing.Size(545, 80);
             this.NotificationPanel.TabIndex = 11;
             // 
             // BirthdayUsersLabel
@@ -284,7 +271,7 @@
             this.NotificationCloseButton.FlatAppearance.BorderSize = 0;
             this.NotificationCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NotificationCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32_empty;
-            this.NotificationCloseButton.Location = new System.Drawing.Point(512, 5);
+            this.NotificationCloseButton.Location = new System.Drawing.Point(513, 5);
             this.NotificationCloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationCloseButton.Name = "NotificationCloseButton";
             this.NotificationCloseButton.Size = new System.Drawing.Size(26, 28);
@@ -348,7 +335,7 @@
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmailTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(432, 20);
+            this.EmailTextBox.Size = new System.Drawing.Size(433, 20);
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
@@ -372,7 +359,7 @@
             this.FullNameTextBox.Location = new System.Drawing.Point(112, 25);
             this.FullNameTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(432, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(433, 20);
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
             // 
@@ -397,6 +384,17 @@
             this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.UserPictureBox.TabIndex = 0;
             this.UserPictureBox.TabStop = false;
+            // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.BackColor = System.Drawing.Color.White;
+            this.PhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PhoneTextBox.Location = new System.Drawing.Point(112, 133);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(175, 20);
+            this.PhoneTextBox.TabIndex = 14;
+            this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneTextBox_KeyPress);
             // 
             // MainForm
             // 
@@ -452,12 +450,12 @@
         private System.Windows.Forms.PictureBox NotificationPictureBox;
         private System.Windows.Forms.Label NotificationBirthLabel;
         private System.Windows.Forms.MaskedTextBox BirthDateMaskedTextBox;
-        private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
         private System.Windows.Forms.TableLayoutPanel ButtonsTableLayoutPanel;
         private System.Windows.Forms.Label BirthdayUsersLabel;
         private System.Windows.Forms.PictureBox AddUserButton;
         private System.Windows.Forms.PictureBox EditUserButton;
         private System.Windows.Forms.PictureBox RemoveUserButton;
+        private System.Windows.Forms.TextBox PhoneTextBox;
     }
 }
 

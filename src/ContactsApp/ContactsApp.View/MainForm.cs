@@ -64,7 +64,7 @@ namespace ContactsApp.View
             var contact = (FindTextBox.Text == "") ? _project.Contacts[index] : _currentContacts[index];
             FullNameTextBox.Text = contact.FullName;
             EmailTextBox.Text = contact.Email;
-            PhoneMaskedTextBox.Text = contact.PhoneNumber;
+            PhoneTextBox.Text = contact.PhoneNumber;
             BirthDateMaskedTextBox.Text = contact.DateOfBirth.ToString();
             VKTextBox.Text = contact.VKID;
         }
@@ -76,7 +76,7 @@ namespace ContactsApp.View
         {
             FullNameTextBox.Clear();
             EmailTextBox.Clear();
-            PhoneMaskedTextBox.Clear();
+            PhoneTextBox.Clear();
             BirthDateMaskedTextBox.Clear();
             VKTextBox.Clear();
         }
@@ -346,6 +346,16 @@ namespace ContactsApp.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Запрещает ввод символов в <see cref="PhoneTextBox"/>.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
