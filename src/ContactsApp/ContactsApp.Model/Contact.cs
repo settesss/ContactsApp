@@ -30,24 +30,14 @@ namespace ContactsApp.Model
         private DateTime _dateOfBirth;
 
         /// <summary>
-        /// Неправильно введённое время.
-        /// </summary>
-        private DateTime _dateTime = new DateTime(0001, 01, 01);
-
-        /// <summary>
-        /// Минимальная дата для ввода.
-        /// </summary>
-        private DateTime _minDate = new DateTime(1900, 01, 01);
-
-        /// <summary>
-        /// Максимальная дата для ввода, равная текущей.
-        /// </summary>
-        private DateTime _maxDate = DateTime.Now;
-
-        /// <summary>
         /// Уникальный идентификатор пользователя VK.
         /// </summary>
         private string _vkId;
+
+        /// <summary>
+        /// Валидатор.
+        /// </summary>
+        private ContactValidator _validator = new ContactValidator();
 
         /// <summary>
         /// Возвращает или задает полное имя.
@@ -57,15 +47,11 @@ namespace ContactsApp.Model
             get { return _fullName; }
             set 
             {
-                if (value.Length > 100)
+                string errorMessage;
+                bool isValid = _validator.ValidateFullName(ref value, out errorMessage);
+                if (!isValid)
                 {
-                    throw new ArgumentException($"Your name '{value}' is too long. " +
-                        $"Try to enter a shorter name, please!");
-                }
-                if (string.IsNullOrEmpty(value))
-                {
-                    _fullName = "Empty Name";
-                    return;
+                    throw new ArgumentException(errorMessage); 
                 }
                 var textInfo = CultureInfo.CurrentCulture.TextInfo;
                 _fullName = textInfo.ToTitleCase(value);
@@ -80,10 +66,11 @@ namespace ContactsApp.Model
             get { return _email; }
             set
             {
-                if (value.Length > 100)
+                string errorMessage;
+                bool isValid = _validator.ValidateEmail(value, out errorMessage);
+                if (!isValid)
                 {
-                    throw new ArgumentException($"Your e-mail '{value}' is too long. " +
-                        $"Try to enter a shorter e-mail, please!");
+                    throw new ArgumentException(errorMessage);
                 }
                 _email = value;
             }
@@ -92,21 +79,38 @@ namespace ContactsApp.Model
         /// <summary>
         /// Возвращает или задает номер телефона.
         /// </summary>
-        public string PhoneNumber {
-            get { return _phoneNumber; }
+        public string PhoneNumber
+        {
+            get { return _phoneNumber ?? "70000000000"; }
             set
             {
-                value = new string(value.Where(char.IsDigit).ToArray());
-                if (value.Length != 11)
+                string errorMessage;
+                bool isValid = _validator.ValidatePhoneNumber(value, out errorMessage);
+                if (!isValid)
                 {
-                    throw new ArgumentException($"Invalid phone number format '{value}'." +
-                        $"\nThe format should be '+7 (XXX) XXX-XX-XX'");
+                    throw new ArgumentException(errorMessage);
                 }
-                _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
-                    value.Substring(1, 3),
-                    value.Substring(4, 3),
-                    value.Substring(7, 2),
-                    value.Substring(9, 2));
+                string phoneNumber = new string(value.Where(char.IsDigit).ToArray());
+                if (phoneNumber.Length == 10)
+                {
+                    _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
+                        phoneNumber.Substring(0, 3),
+                        phoneNumber.Substring(3, 3),
+                        phoneNumber.Substring(6, 2),
+                        phoneNumber.Substring(8, 2));
+                }
+                else if (phoneNumber.Length == 11)
+                {
+                    _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
+                        phoneNumber.Substring(1, 3),
+                        phoneNumber.Substring(4, 3),
+                        phoneNumber.Substring(7, 2),
+                        phoneNumber.Substring(9, 2));
+                }
+                else
+                {
+                    _phoneNumber = "+" + phoneNumber;
+                }
             }
         }
 
@@ -118,16 +122,11 @@ namespace ContactsApp.Model
             get { return _dateOfBirth; }
             set
             {
-                if (value == _dateTime)
+                string errorMessage;
+                bool isValid = _validator.ValidateDateOfBirth(ref value, out errorMessage);
+                if (!isValid)
                 {
-                    _dateOfBirth = _minDate;
-                    return;
-                }
-                if (value < _minDate || value >= _maxDate)
-                {
-                    throw new ArgumentException($"The entered date " +
-                        $"'{value.ToShortDateString()}' " +
-                        $"must be less than the current one and more than 1900.01.01!");
+                    throw new ArgumentException(errorMessage);
                 }
                 _dateOfBirth = value;
             }
@@ -141,10 +140,11 @@ namespace ContactsApp.Model
             get { return _vkId; }
             set
             {
-                if (value.Length > 50)
+                string errorMessage;
+                bool isValid = _validator.ValidateVkId(value, out errorMessage);
+                if (!isValid)
                 {
-                    throw new ArgumentException($"Your VK-ID '{value}' is too long. " +
-                        $"Try to enter a shorter ID, please!");
+                    throw new ArgumentException(errorMessage);
                 }
                 _vkId = value;
             }

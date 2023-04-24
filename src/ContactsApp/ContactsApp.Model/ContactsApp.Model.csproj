@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
+    <Compile Include="ContactValidator.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
