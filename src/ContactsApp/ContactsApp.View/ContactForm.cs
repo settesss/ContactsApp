@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -88,24 +89,33 @@ namespace ContactsApp.View
         /// <returns></returns>
         private bool CheckFormOnErrors()
         {
-            List<string> errorsList = new List<string>() 
+            var errors = new StringBuilder();
+            if (!string.IsNullOrEmpty(_fullNameError))
             {
-                _fullNameError,
-                _emailError,
-                _phoneNumberError,
-                _birthDateError,
-                _vkIdError
-            };
-            var mixedError = string.Join("\n", errorsList.Where(c => c != null));
-            if (string.IsNullOrEmpty(mixedError))
-            {
-                return true;
+                errors.AppendLine($"- {_fullNameError}\n");
             }
-            else
+            if (!string.IsNullOrEmpty(_emailError))
             {
-                MessageBox.Show(mixedError);
+                errors.AppendLine($"- {_emailError}\n");
+            }
+            if (!string.IsNullOrEmpty(_phoneNumberError))
+            {
+                errors.AppendLine($"- {_phoneNumberError}\n");
+            }
+            if (!string.IsNullOrEmpty(_birthDateError))
+            {
+                errors.AppendLine($"- {_birthDateError}\n");
+            }
+            if (!string.IsNullOrEmpty(_vkIdError))
+            {
+                errors.AppendLine($"- {_vkIdError}\n");
+            }
+            if (errors.Length > 0)
+            {
+                MessageBox.Show("Обнаружены ошибки:\n\n" + errors.ToString());
                 return false;
             }
+            return true;
         }
  
         /// <summary>
