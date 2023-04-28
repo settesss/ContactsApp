@@ -154,12 +154,12 @@
             {
                 _contact.FullName = FullNameTextBox.Text;
                 _fullNameError = null;
-                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
             }
             catch (Exception exception)
             {
                 _fullNameError = exception.Message;
-                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                FullNameTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.ErrorLight);
             }
         }
 
@@ -174,12 +174,12 @@
             {
                 _contact.Email = EmailTextBox.Text;
                 _emailError = null;
-                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
             }
             catch (Exception exception)
             {
                 _emailError = exception.Message;
-                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                EmailTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.ErrorLight);
             }
         }
 
@@ -194,12 +194,12 @@
             { 
                 _contact.PhoneNumber = PhoneTextBox.Text;
                 _phoneNumberError = null;
-                PhoneTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                PhoneTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
             }
             catch (Exception exception)
             {
                 _phoneNumberError = exception.Message;
-                PhoneTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                PhoneTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.ErrorLight);
             }
         }
 
@@ -217,7 +217,7 @@
                     _contact.DateOfBirth =
                         DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "yyyy.M.dd", null);
                     _birthDateError = null;
-                    DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                    DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
                 }
                 else
                 {
@@ -227,7 +227,7 @@
             catch (Exception exception)
             {
                 _birthDateError = exception.Message;
-                DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.ErrorLight);
             }
         }
 
@@ -242,12 +242,12 @@
             {
                 _contact.VKID = VKTextBox.Text;
                 _vkIdError = null;
-                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
             }
             catch (Exception exception)
             {
                 _vkIdError = exception.Message;
-                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                VKTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.ErrorLight);
             }
         }
 
@@ -270,7 +270,7 @@
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
-            AddPhotoButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+            AddPhotoButton.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
         }
     }
 }

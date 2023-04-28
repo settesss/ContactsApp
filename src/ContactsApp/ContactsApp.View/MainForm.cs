@@ -269,7 +269,7 @@
         private void AddUserButton_MouseEnter(object sender, EventArgs e)
         {
             AddUserButton.Image = Properties.Resources.add_contact_32x32;
-            AddUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.accentBlueBackground);
+            AddUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.AccentBlueBackground);
         }
 
         /// <summary>
@@ -280,7 +280,7 @@
         private void AddUserButton_MouseLeave(object sender, EventArgs e)
         {
             AddUserButton.Image = Properties.Resources.add_contact_32x32_gray;
-            AddUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+            AddUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
         }
 
         /// <summary>
@@ -291,7 +291,7 @@
         private void EditUserButton_MouseEnter(object sender, EventArgs e)
         {
             EditUserButton.Image = Properties.Resources.edit_contact_32x32;
-            EditUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.accentBlueBackground);
+            EditUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.AccentBlueBackground);
         }
 
         /// <summary>
@@ -302,7 +302,7 @@
         private void EditUserButton_MouseLeave(object sender, EventArgs e)
         {
             EditUserButton.Image = Properties.Resources.edit_contact_32x32_gray;
-            EditUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+            EditUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
         }
 
         /// <summary>
@@ -313,7 +313,7 @@
         private void RemoveUserButton_MouseEnter(object sender, EventArgs e)
         {
             RemoveUserButton.Image = Properties.Resources.remove_contact_32x32;
-            RemoveUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.accentRedBackground);
+            RemoveUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.AccentRedBackground);
         }
 
         /// <summary>
@@ -324,7 +324,7 @@
         private void RemoveUserButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveUserButton.Image = Properties.Resources.remove_contact_32x32_gray;
-            RemoveUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+            RemoveUserButton.BackColor = ColorTranslator.FromHtml(ColorCodes.White);
         }
 
         /// <summary>
