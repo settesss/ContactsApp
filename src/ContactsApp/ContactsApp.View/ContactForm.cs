@@ -127,7 +127,7 @@ namespace ContactsApp.View
             _contact.Email = EmailTextBox.Text;
             _contact.PhoneNumber = PhoneTextBox.Text;
             _contact.DateOfBirth = 
-                DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null); 
+                DateTime.ParseExact(BirthDateMaskedTextBox.Text, "dd.M.yyyy", null); 
             _contact.VKID = VKTextBox.Text;
         }
 
@@ -227,7 +227,7 @@ namespace ContactsApp.View
                 if (BirthDateMaskedTextBox.MaskCompleted)
                 {
                     _contact.DateOfBirth = 
-                        DateTime.ParseExact(BirthDateMaskedTextBox.Text, "M.dd.yyyy", null);
+                        DateTime.ParseExact(BirthDateMaskedTextBox.Text, "dd.M.yyyy", null);
                     _birthDateError = null;
                     BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
                 }
