@@ -39,7 +39,7 @@ namespace ContactsApp.View
         private string _phoneNumberError;
 
         /// <summary>
-        /// Текст ошибки ввода в <see cref="BirthDateMaskedTextBox"/>.
+        /// Текст ошибки ввода в <see cref="DateOfBirthMaskedTextBox"/>.
         /// </summary>
         private string _birthDateError;
 
@@ -79,7 +79,7 @@ namespace ContactsApp.View
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
             PhoneTextBox.Text = _contact.PhoneNumber;
-            BirthDateMaskedTextBox.Text = _contact.DateOfBirth.ToString();
+            DateOfBirthMaskedTextBox.Text = _contact.DateOfBirth.ToString();
             VKTextBox.Text = _contact.VKID;
         }
 
@@ -127,7 +127,7 @@ namespace ContactsApp.View
             _contact.Email = EmailTextBox.Text;
             _contact.PhoneNumber = PhoneTextBox.Text;
             _contact.DateOfBirth = 
-                DateTime.ParseExact(BirthDateMaskedTextBox.Text, "dd.M.yyyy", null); 
+                DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "dd.M.yyyy", null); 
             _contact.VKID = VKTextBox.Text;
         }
 
@@ -216,26 +216,30 @@ namespace ContactsApp.View
         }
 
         /// <summary>
-        /// Обрабатывает введённые данные в <see cref="BirthDateMaskedTextBox"/>.
+        /// Обрабатывает введённые данные в <see cref="DateOfBirthMaskedTextBox"/>.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BirthDateMaskedTextBox_TextChanged(object sender, EventArgs e)
+        private void DateOfBirthMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (BirthDateMaskedTextBox.MaskCompleted)
+                if (DateOfBirthMaskedTextBox.MaskCompleted)
                 {
-                    _contact.DateOfBirth = 
-                        DateTime.ParseExact(BirthDateMaskedTextBox.Text, "dd.M.yyyy", null);
+                    _contact.DateOfBirth =
+                        DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "dd.M.yyyy", null);
                     _birthDateError = null;
-                    BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                    DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
+                }
+                else
+                {
+                    throw new Exception("Birth date is not fully entered");
                 }
             }
             catch (Exception exception)
             {
                 _birthDateError = exception.Message;
-                BirthDateMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
+                DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.lightPink);
             }
         }
 

@@ -34,13 +34,13 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.PhoneLabel = new System.Windows.Forms.Label();
-            this.BirthDateLabel = new System.Windows.Forms.Label();
+            this.DateOfBirthLabel = new System.Windows.Forms.Label();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.BirthDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.DateOfBirthMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.AddPhotoButton = new System.Windows.Forms.PictureBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
@@ -115,15 +115,15 @@
             this.PhoneLabel.TabIndex = 6;
             this.PhoneLabel.Text = "PhoneNumber:";
             // 
-            // BirthDateLabel
+            // DateOfBirthLabel
             // 
-            this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(117, 176);
-            this.BirthDateLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.BirthDateLabel.Name = "BirthDateLabel";
-            this.BirthDateLabel.Size = new System.Drawing.Size(69, 13);
-            this.BirthDateLabel.TabIndex = 15;
-            this.BirthDateLabel.Text = "Date of Birth:";
+            this.DateOfBirthLabel.AutoSize = true;
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(117, 176);
+            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.DateOfBirthLabel.Name = "DateOfBirthLabel";
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(69, 13);
+            this.DateOfBirthLabel.TabIndex = 15;
+            this.DateOfBirthLabel.Text = "Date of Birth:";
             // 
             // VKTextBox
             // 
@@ -196,21 +196,21 @@
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // BirthDateMaskedTextBox
+            // DateOfBirthMaskedTextBox
             // 
-            this.BirthDateMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.DateOfBirthMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthDateMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BirthDateMaskedTextBox.Location = new System.Drawing.Point(118, 194);
-            this.BirthDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.BirthDateMaskedTextBox.Mask = "00/00/0000";
-            this.BirthDateMaskedTextBox.MaximumSize = new System.Drawing.Size(203, 2);
-            this.BirthDateMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
-            this.BirthDateMaskedTextBox.Name = "BirthDateMaskedTextBox";
-            this.BirthDateMaskedTextBox.Size = new System.Drawing.Size(180, 20);
-            this.BirthDateMaskedTextBox.TabIndex = 20;
-            this.BirthDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
-            this.BirthDateMaskedTextBox.TextChanged += new System.EventHandler(this.BirthDateMaskedTextBox_TextChanged);
+            this.DateOfBirthMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DateOfBirthMaskedTextBox.Location = new System.Drawing.Point(118, 194);
+            this.DateOfBirthMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DateOfBirthMaskedTextBox.Mask = "00/00/0000";
+            this.DateOfBirthMaskedTextBox.MaximumSize = new System.Drawing.Size(203, 2);
+            this.DateOfBirthMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
+            this.DateOfBirthMaskedTextBox.Name = "DateOfBirthMaskedTextBox";
+            this.DateOfBirthMaskedTextBox.Size = new System.Drawing.Size(180, 20);
+            this.DateOfBirthMaskedTextBox.TabIndex = 20;
+            this.DateOfBirthMaskedTextBox.ValidatingType = typeof(System.DateTime);
+            this.DateOfBirthMaskedTextBox.TextChanged += new System.EventHandler(this.DateOfBirthMaskedTextBox_TextChanged);
             // 
             // AddPhotoButton
             // 
@@ -244,11 +244,11 @@
             this.ClientSize = new System.Drawing.Size(509, 341);
             this.Controls.Add(this.PhoneTextBox);
             this.Controls.Add(this.AddPhotoButton);
-            this.Controls.Add(this.BirthDateMaskedTextBox);
+            this.Controls.Add(this.DateOfBirthMaskedTextBox);
             this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.VKTextBox);
             this.Controls.Add(this.VKLabel);
-            this.Controls.Add(this.BirthDateLabel);
+            this.Controls.Add(this.DateOfBirthLabel);
             this.Controls.Add(this.PhoneLabel);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.EmailLabel);
@@ -277,13 +277,13 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Label PhoneLabel;
-        private System.Windows.Forms.Label BirthDateLabel;
+        private System.Windows.Forms.Label DateOfBirthLabel;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.Label VKLabel;
         private System.Windows.Forms.Panel ButtonsPanel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
-        private System.Windows.Forms.MaskedTextBox BirthDateMaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox DateOfBirthMaskedTextBox;
         private System.Windows.Forms.PictureBox AddPhotoButton;
         private System.Windows.Forms.TextBox PhoneTextBox;
     }
