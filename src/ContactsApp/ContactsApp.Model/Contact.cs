@@ -1,9 +1,9 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-
-namespace ContactsApp.Model
+﻿namespace ContactsApp.Model
 {
+    using System;
+    using System.Globalization;
+    using System.Linq;
+
     /// <summary>
     /// Описывает контакт телефонной книги.
     /// </summary>

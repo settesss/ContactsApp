@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
+    using System;
+    using System.Drawing;
+    using System.Text;
+    using System.Windows.Forms;
+    using ContactsApp.Model;
+
     /// <summary>
     /// Описывает форму контакта.
     /// </summary>
@@ -16,12 +14,12 @@ namespace ContactsApp.View
         /// <summary>
         /// Контакт.
         /// </summary>
-        private Model.Contact _contact = new Model.Contact();
+        private Contact _contact = new Contact();
 
         /// <summary>
         /// Возвращает контакт.
         /// </summary>
-        public Model.Contact Contact { get { return _contact; }  set { } }
+        public Contact Contact { get { return _contact; }  set { } }
 
         /// <summary>
         /// Текст ошибки ввода в <see cref="FullNameTextBox"/>.
@@ -50,10 +48,10 @@ namespace ContactsApp.View
 
         /// <summary>
         /// Строит пользовательский интерфейс <see cref="ContactForm"/>
-        /// с переданными в него данными <see cref="Model.Contact"/>.
+        /// с переданными в него данными <see cref="Contact"/>.
         /// </summary>
         /// <param name="contact"></param>
-        public ContactForm(Model.Contact contact)
+        public ContactForm(Contact contact)
         {
             InitializeComponent();
             _contact = contact;

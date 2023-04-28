@@ -1,12 +1,12 @@
-﻿using ContactsApp.Model;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
+    using ContactsApp.Model;
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+    using System.Windows.Forms;
+
     /// <summary>
     /// Описывает главную форму.
     /// </summary>

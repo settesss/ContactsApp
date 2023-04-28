@@ -1,9 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Diagnostics;
-
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
+    using System;
+    using System.Windows.Forms;
+    using System.Diagnostics;
+
     /// <summary>
     /// Описывает форму описания приложения.
     /// </summary>

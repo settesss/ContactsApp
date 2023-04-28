@@ -1,5 +1,4 @@
-﻿
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
     /// <summary>
     /// Описывает все используемые цвета в приложении.

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace ContactsApp.View
+﻿namespace ContactsApp.View
 {
+    using System;
+
     /// <summary>
     /// Описывает генерацию данных.
     /// </summary>
