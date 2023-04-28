@@ -123,28 +123,25 @@ namespace ContactsApp.View
             {
                 return;
             }
-            else
-            {
-                var resultRemove = MessageBox.Show("Do you really want to remove "
+            var resultRemove = MessageBox.Show("Do you really want to remove "
                 + _project.Contacts[index].FullName + "?",
                 "Deletion message:", MessageBoxButtons.OKCancel);
-                if (resultRemove != DialogResult.OK)
+            if (resultRemove != DialogResult.OK)
+            {
+                return;
+            }
+            if (FindTextBox.Text == "")
+            {
+                _project.Contacts.RemoveAt(index);
+            }
+            else
+            {
+                var contactIndex =
+                    _project.Contacts.FindIndex(c => c == _currentContacts[index]);
+                if (contactIndex >= 0)
                 {
-                    return;
-                }
-                if (FindTextBox.Text == "")
-                {
-                    _project.Contacts.RemoveAt(index);
-                }
-                else
-                {
-                    var contactIndex =
-                        _project.Contacts.FindIndex(c => c == _currentContacts[index]);
-                    if (contactIndex >= 0)
-                    {
-                        _project.Contacts.RemoveAt(contactIndex);
-                        _currentContacts.RemoveAt(index);
-                    }
+                    _project.Contacts.RemoveAt(contactIndex);
+                    _currentContacts.RemoveAt(index);
                 }
             }
         }
