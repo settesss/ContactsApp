@@ -75,7 +75,7 @@
         /// Проверяет форму на все возможные ошибки.
         /// </summary>
         /// <returns></returns>
-        private bool CheckFormOnErrors()
+        private bool IsFormHasErrors()
         {
             var errors = new StringBuilder();
             if (!string.IsNullOrEmpty(_fullNameError))
@@ -136,7 +136,7 @@
         /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
-            if (CheckFormOnErrors() == true)
+            if (IsFormHasErrors())
             {
                 DialogResult = DialogResult.OK;
                 UpdateContact();

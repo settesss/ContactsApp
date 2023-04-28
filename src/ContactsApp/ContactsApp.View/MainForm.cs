@@ -23,11 +23,6 @@
         private List<Contact> _currentContacts = new List<Contact>();
 
         /// <summary>
-        /// Проверка нажатия на <see cref="NotificationCloseButton"/>
-        /// </summary>
-        private bool notificationClose = false;
-
-        /// <summary>
         /// Строит пользовательский интерфейс <see cref="MainForm"/>.
         /// </summary>
         public MainForm()
@@ -46,7 +41,7 @@
             UsersListBox.Items.AddRange(FindTextBox.Text == "" ? 
                 _project.Contacts.Select(c => c.FullName).ToArray() : 
                 _currentContacts.Select(c => c.FullName).ToArray());
-            if (notificationClose == false)
+            if (NotificationPanel.Visible == true)
             {
                 var birthdayUsers = _project.FindContactsOfBirthdayPeople(_project.Contacts);
                 BirthdayUsersLabel.Text = birthdayUsers;
@@ -214,7 +209,6 @@
         /// <param name="e"></param>
         private void NotificationCloseButton_Click(object sender, EventArgs e)
         {
-            notificationClose = true;
             NotificationPanel.Visible = false;
         }
 
