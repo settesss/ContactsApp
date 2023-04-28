@@ -19,7 +19,7 @@
         /// <summary>
         /// Возвращает контакт.
         /// </summary>
-        public Contact Contact { get { return _contact; }  set { } }
+        public Contact Contact { get { return _contact; }  set { _contact = value; } }
 
         /// <summary>
         /// Текст ошибки ввода в <see cref="FullNameTextBox"/>.
@@ -51,20 +51,10 @@
         /// с переданными в него данными <see cref="Contact"/>.
         /// </summary>
         /// <param name="contact"></param>
-        public ContactForm(Contact contact)
+        public ContactForm(Contact contact = null)
         {
             InitializeComponent();
-            _contact = contact;
-            UpdateForm();
-        }
-
-        /// <summary>
-        /// Строит пользовательский интерфейс <see cref="ContactForm"/>
-        /// без параметров.
-        /// </summary>
-        public ContactForm()
-        {
-            InitializeComponent();
+            _contact = contact ?? new Contact();
             UpdateForm();
         }
 
@@ -77,7 +67,7 @@
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
             PhoneTextBox.Text = _contact.PhoneNumber;
-            DateOfBirthMaskedTextBox.Text = _contact.DateOfBirth.ToString();
+            DateOfBirthMaskedTextBox.Text = _contact.DateOfBirth.ToString("yyyy.MM.dd");
             VKTextBox.Text = _contact.VKID;
         }
 
@@ -125,7 +115,7 @@
             _contact.Email = EmailTextBox.Text;
             _contact.PhoneNumber = PhoneTextBox.Text;
             _contact.DateOfBirth = 
-                DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "dd.M.yyyy", null); 
+                DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "yyyy.M.dd", null); 
             _contact.VKID = VKTextBox.Text;
         }
 
@@ -225,7 +215,7 @@
                 if (DateOfBirthMaskedTextBox.MaskCompleted)
                 {
                     _contact.DateOfBirth =
-                        DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "dd.M.yyyy", null);
+                        DateTime.ParseExact(DateOfBirthMaskedTextBox.Text, "yyyy.M.dd", null);
                     _birthDateError = null;
                     DateOfBirthMaskedTextBox.BackColor = ColorTranslator.FromHtml(ColorCodes.white);
                 }

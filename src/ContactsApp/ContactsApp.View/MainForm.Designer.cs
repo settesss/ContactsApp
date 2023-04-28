@@ -37,6 +37,7 @@
             this.UsersListBox = new System.Windows.Forms.ListBox();
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.FindLabel = new System.Windows.Forms.Label();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.BirthDateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.NotificationPanel = new System.Windows.Forms.Panel();
             this.BirthdayUsersLabel = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.UserPictureBox = new System.Windows.Forms.PictureBox();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
@@ -202,13 +202,24 @@
             this.FindLabel.TabIndex = 0;
             this.FindLabel.Text = "Find:";
             // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.BackColor = System.Drawing.Color.White;
+            this.PhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PhoneTextBox.Location = new System.Drawing.Point(112, 133);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(175, 20);
+            this.PhoneTextBox.TabIndex = 14;
+            this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneTextBox_KeyPress);
+            // 
             // BirthDateMaskedTextBox
             // 
             this.BirthDateMaskedTextBox.BackColor = System.Drawing.Color.White;
             this.BirthDateMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BirthDateMaskedTextBox.Location = new System.Drawing.Point(112, 182);
             this.BirthDateMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.BirthDateMaskedTextBox.Mask = "00/00/0000";
+            this.BirthDateMaskedTextBox.Mask = "0000/00/00";
             this.BirthDateMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.BirthDateMaskedTextBox.Name = "BirthDateMaskedTextBox";
             this.BirthDateMaskedTextBox.ReadOnly = true;
@@ -228,7 +239,7 @@
             this.NotificationPanel.Location = new System.Drawing.Point(6, 370);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(545, 80);
+            this.NotificationPanel.Size = new System.Drawing.Size(546, 80);
             this.NotificationPanel.TabIndex = 11;
             // 
             // BirthdayUsersLabel
@@ -271,7 +282,7 @@
             this.NotificationCloseButton.FlatAppearance.BorderSize = 0;
             this.NotificationCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NotificationCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32_empty;
-            this.NotificationCloseButton.Location = new System.Drawing.Point(513, 5);
+            this.NotificationCloseButton.Location = new System.Drawing.Point(514, 5);
             this.NotificationCloseButton.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationCloseButton.Name = "NotificationCloseButton";
             this.NotificationCloseButton.Size = new System.Drawing.Size(26, 28);
@@ -335,7 +346,7 @@
             this.EmailTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmailTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(433, 20);
+            this.EmailTextBox.Size = new System.Drawing.Size(434, 20);
             this.EmailTextBox.TabIndex = 4;
             this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
@@ -359,7 +370,7 @@
             this.FullNameTextBox.Location = new System.Drawing.Point(112, 25);
             this.FullNameTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(433, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(434, 20);
             this.FullNameTextBox.TabIndex = 2;
             this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
             // 
@@ -384,17 +395,6 @@
             this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.UserPictureBox.TabIndex = 0;
             this.UserPictureBox.TabStop = false;
-            // 
-            // PhoneTextBox
-            // 
-            this.PhoneTextBox.BackColor = System.Drawing.Color.White;
-            this.PhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PhoneTextBox.Location = new System.Drawing.Point(112, 133);
-            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(175, 20);
-            this.PhoneTextBox.TabIndex = 14;
-            this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneTextBox_KeyPress);
             // 
             // MainForm
             // 

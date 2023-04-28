@@ -203,7 +203,7 @@
             this.DateOfBirthMaskedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DateOfBirthMaskedTextBox.Location = new System.Drawing.Point(118, 194);
             this.DateOfBirthMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.DateOfBirthMaskedTextBox.Mask = "00/00/0000";
+            this.DateOfBirthMaskedTextBox.Mask = "0000/00/00";
             this.DateOfBirthMaskedTextBox.MaximumSize = new System.Drawing.Size(203, 2);
             this.DateOfBirthMaskedTextBox.MinimumSize = new System.Drawing.Size(143, 22);
             this.DateOfBirthMaskedTextBox.Name = "DateOfBirthMaskedTextBox";

@@ -65,7 +65,7 @@
             FullNameTextBox.Text = contact.FullName;
             EmailTextBox.Text = contact.Email;
             PhoneTextBox.Text = contact.PhoneNumber;
-            BirthDateMaskedTextBox.Text = contact.DateOfBirth.ToString();
+            BirthDateMaskedTextBox.Text = contact.DateOfBirth.ToString("yyyy.MM.dd");
             VKTextBox.Text = contact.VKID;
         }
 
