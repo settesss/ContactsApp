@@ -152,7 +152,6 @@ namespace ContactsApp.View
             {
                 DialogResult = DialogResult.OK;
                 UpdateContact();
-                Close();
             }
         }
 
