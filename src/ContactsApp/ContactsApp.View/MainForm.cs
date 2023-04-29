@@ -37,10 +37,9 @@
         /// <returns></returns>
         private ListBox UpdateListBox()
         {
+            _currentContacts.Sort(_project.SortContactsByFullName);
             UsersListBox.Items.Clear();
-            UsersListBox.Items.AddRange(FindTextBox.Text == "" ? 
-                _project.Contacts.Select(c => c.FullName).ToArray() : 
-                _currentContacts.Select(c => c.FullName).ToArray());
+            UsersListBox.Items.AddRange(_currentContacts.Select(c => c.FullName).ToArray());
             if (NotificationPanel.Visible == true)
             {
                 var birthdayUsers = _project.FindContactsOfBirthdayPeople(_project.Contacts);
@@ -56,7 +55,7 @@
         /// <param name="index"></param>
         private void UpdateSelectedContact(int index)
         {
-            var contact = (FindTextBox.Text == "") ? _project.Contacts[index] : _currentContacts[index];
+            var contact = _currentContacts[index];
             FullNameTextBox.Text = contact.FullName;
             EmailTextBox.Text = contact.Email;
             PhoneTextBox.Text = contact.PhoneNumber;
@@ -77,34 +76,24 @@
         }
 
         /// <summary>
-        /// Добавляет новый объект контакта.
-        /// </summary>
-        private void AddContact()
-        {
-            Contact user = new Contact();
-            ContactFactory.GenerateRandom(user);
-            _project.Contacts.Add(user);
-        }
-
-        /// <summary>
         /// Открывает <see cref="ContactForm"/> для редактирования контакта.
         /// </summary>
         /// <param name="index"></param>
         /// <param name="contacts"></param>
-        private void EditContact(int index, List<Contact> contacts)
+        private void EditContact(int index)
         {
-            var form = new ContactForm(contacts[index]);
+            var form = new ContactForm(_currentContacts[index]);
             Contact contactToEdit;
-            contactToEdit = (Contact)contacts[index].Clone();
+            contactToEdit = (Contact)_currentContacts[index].Clone();
             form.Contact = contactToEdit;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {
                 Contact editedContact = form.Contact;
-                int contactIndex = _project.Contacts.FindIndex(c => c == contacts[index]);
+                int contactIndex = _project.Contacts.FindIndex(c => c == _currentContacts[index]);
                 _project.Contacts[contactIndex] = editedContact;
                 UsersListBox.Items[index] = editedContact.FullName;
-                contacts[index] = editedContact;
+                _currentContacts[index] = editedContact;
             }
         }
 
@@ -119,26 +108,14 @@
                 return;
             }
             var resultRemove = MessageBox.Show("Do you really want to remove "
-                + _project.Contacts[index].FullName + "?",
+                + _currentContacts[index].FullName + "?",
                 "Deletion message:", MessageBoxButtons.OKCancel);
             if (resultRemove != DialogResult.OK)
             {
                 return;
             }
-            if (FindTextBox.Text == "")
-            {
-                _project.Contacts.RemoveAt(index);
-            }
-            else
-            {
-                var contactIndex =
-                    _project.Contacts.FindIndex(c => c == _currentContacts[index]);
-                if (contactIndex >= 0)
-                {
-                    _project.Contacts.RemoveAt(contactIndex);
-                    _currentContacts.RemoveAt(index);
-                }
-            }
+            _project.Contacts.Remove(_currentContacts[index]);
+            _currentContacts.RemoveAt(index);
         }
 
         /// <summary>
@@ -148,13 +125,14 @@
         /// <param name="e"></param>
         private void AddUserButton_Click(object sender, EventArgs e)
         {
-            ContactForm AddContactForm = new ContactForm();
+            var AddContactForm = new ContactForm();
             AddContactForm.ShowDialog();
             var contact = _project.Contacts;
             if (AddContactForm.DialogResult == DialogResult.OK)
             {
-                contact.Add(AddContactForm.Contact);
-                contact.Sort(_project.SortContactsByFullName);
+                Contact newContact = AddContactForm.Contact;
+                contact.Add(newContact);
+                _currentContacts.Add(newContact);
                 UpdateListBox();
             }
         }
@@ -171,8 +149,7 @@
             {
                 return;
             }
-            var contacts = (FindTextBox.Text == "") ? _project.Contacts : _currentContacts;
-            EditContact(selectedIndex, contacts);
+            EditContact(selectedIndex);
             UpdateListBox();
         }
 
@@ -250,8 +227,7 @@
         /// <param name="e"></param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentContacts = (FindTextBox.Text == "") ? _project.Contacts : 
-                _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+            _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
             UpdateListBox();
         }
 

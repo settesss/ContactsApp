@@ -26,6 +26,7 @@
 
         /// <summary>
         /// Возвращает булевое значения для корректного ввода <see cref="Contact.FullName"/>.
+        /// Длина строки не должна превышать 100 символов.
         /// </summary>
         /// <param name="fullName"></param>
         /// <param name="errorMessage"></param>
@@ -48,6 +49,7 @@
 
         /// <summary>
         /// Возвращает булевое значения для корректного ввода <see cref="Contact.Email"/>.
+        /// Длина строки не должна превышать 100 символов.
         /// </summary>
         /// <param name="email"></param>
         /// <param name="errorMessage"></param>
@@ -65,7 +67,8 @@
         }
 
         /// <summary>
-        /// Возвращает булевое значения для корректного ввода <see cref="Contact.PhoneNumber"/>
+        /// Возвращает булевое значения для корректного ввода <see cref="Contact.PhoneNumber"/>.
+        /// По шаблону "+7XXXXXXXXXX", "7XXXXXXXXXX" или "+7 (XXX) XXX-XX-XX".
         /// </summary>
         /// <param name="phoneNumber"></param>
         /// <param name="errorMessage"></param>
@@ -101,7 +104,8 @@
         }
 
         /// <summary>
-        /// Возвращает булевое значения для корректного ввода <see cref="Contact.DateOfBirth"/>
+        /// Возвращает булевое значения для корректного ввода <see cref="Contact.DateOfBirth"/>.
+        /// Дата не должна быть меньше 1900.01.01 и больше текущей.
         /// </summary>
         /// <param name="dateOfBirth"></param>
         /// <param name="errorMessage"></param>
@@ -124,7 +128,8 @@
         }
 
         /// <summary>
-        /// Возвращает булевое значения для корректного ввода <see cref="Contact.VKID"/>
+        /// Возвращает булевое значения для корректного ввода <see cref="Contact.VKID"/>.
+        /// Длина строки не должна превышать 50 символов.
         /// </summary>
         /// <param name="vkId"></param>
         /// <param name="errorMessage"></param>
