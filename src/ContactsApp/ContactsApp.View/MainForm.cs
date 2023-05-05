@@ -23,11 +23,17 @@
         private List<Contact> _currentContacts = new List<Contact>();
 
         /// <summary>
+        /// Сериализатор.
+        /// </summary>
+        private ProjectSerializer _projectSerializer = new ProjectSerializer();
+
+        /// <summary>
         /// Строит пользовательский интерфейс <see cref="MainForm"/>.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
+            _project = _projectSerializer.LoadFromFile();
         }
 
         /// <summary>
@@ -135,6 +141,14 @@
                 _currentContacts.Add(newContact);
                 UpdateListBox();
             }
+            try
+            {
+                _projectSerializer.SaveToFile(_project);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save project: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -215,6 +229,14 @@
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                _projectSerializer.SaveToFile(_project);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save project: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             var result = MessageBox.Show("Do you really want to close the program?",
                 "Exit Message:", MessageBoxButtons.YesNo);
             e.Cancel = (result == DialogResult.No);
