@@ -34,6 +34,8 @@
         {
             InitializeComponent();
             _project = _projectSerializer.LoadFromFile();
+            _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+            UpdateListBox();
         }
 
         /// <summary>
