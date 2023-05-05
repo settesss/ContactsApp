@@ -32,10 +32,26 @@
         /// </summary>
         public MainForm()
         {
-            InitializeComponent();
             _project = _projectSerializer.LoadFromFile();
+            InitializeComponent();
+
             _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
             UpdateListBox();
+        }
+
+        /// <summary>
+        /// Сохраняет данные в указанный файл.
+        /// </summary>
+        private void SaveContactsToFile()
+        {
+            try
+            {
+                _projectSerializer.SaveToFile(_project);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save project: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -143,14 +159,7 @@
                 _currentContacts.Add(newContact);
                 UpdateListBox();
             }
-            try
-            {
-                _projectSerializer.SaveToFile(_project);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to save project: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            SaveContactsToFile();
         }
 
         /// <summary>
@@ -167,6 +176,7 @@
             }
             EditContact(selectedIndex);
             UpdateListBox();
+            SaveContactsToFile();
         }
 
         /// <summary>
@@ -178,6 +188,7 @@
         {
             RemoveContact(UsersListBox.SelectedIndex);
             UpdateListBox();
+            SaveContactsToFile();
             ClearSelectedContact();
         }
 
@@ -231,14 +242,7 @@
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                _projectSerializer.SaveToFile(_project);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to save project: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            SaveContactsToFile();
             var result = MessageBox.Show("Do you really want to close the program?",
                 "Exit Message:", MessageBoxButtons.YesNo);
             e.Cancel = (result == DialogResult.No);
