@@ -69,6 +69,10 @@
             if (NotificationPanel.Visible == true)
             {
                 var birthdayUsers = _project.FindContactsOfBirthdayPeople(_project.Contacts);
+                if (birthdayUsers.Length > 50)
+                {
+                    birthdayUsers = birthdayUsers.Substring(0, 50) + "...";
+                }
                 BirthdayUsersLabel.Text = birthdayUsers;
             }
             return UsersListBox;
