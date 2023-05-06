@@ -34,7 +34,8 @@ namespace ContactsApp.Model
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Filename cannot be null or whitespace", nameof(Filename));
+                    throw new ArgumentException("Filename cannot be null or whitespace", 
+                        nameof(Filename));
                 }
                 _fileName = value;
             }
@@ -49,7 +50,8 @@ namespace ContactsApp.Model
         {
             try
             {
-                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Manakov", "ContactsApp");
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.
+                    ApplicationData), "Manakov", "ContactsApp");
                 Directory.CreateDirectory(path);
 
                 var json = JsonConvert.SerializeObject(project, Formatting.Indented);
@@ -58,7 +60,8 @@ namespace ContactsApp.Model
             }
             catch (Exception ex)
             {
-                throw new ApplicationException($"Failed to save file {_fileName}: {ex.Message}", ex);
+                throw new ApplicationException($"Failed to save file {_fileName}:" +
+                    $" {ex.Message}", ex);
             }
         }
 
@@ -83,7 +86,8 @@ namespace ContactsApp.Model
             }
             catch (Exception ex)
             {
-                throw new ApplicationException($"Failed to load file {_fileName}: {ex.Message}", ex);
+                throw new ApplicationException($"Failed to load file {_fileName}:" +
+                    $" {ex.Message}", ex);
             }
         }
 
@@ -93,7 +97,8 @@ namespace ContactsApp.Model
         public ProjectSerializer()
         {
             _defaultDirectory = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Manakov", "ContactsApp");
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "Manakov", "ContactsApp");
             if (!Directory.Exists(_defaultDirectory))
             {
                 Directory.CreateDirectory(_defaultDirectory);

@@ -35,7 +35,8 @@
             _project = _projectSerializer.LoadFromFile();
             InitializeComponent();
 
-            _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+            _currentContacts = 
+                _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
             UpdateListBox();
         }
 
@@ -50,7 +51,8 @@
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to save project: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to save project: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -255,7 +257,8 @@
         /// <param name="e"></param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-            _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+            _currentContacts = _project.FindContactsBySubstring(_project.Contacts,
+                FindTextBox.Text);
             UpdateListBox();
         }
 
