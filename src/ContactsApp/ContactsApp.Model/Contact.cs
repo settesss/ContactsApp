@@ -109,10 +109,7 @@
                         phoneNumber.Substring(7, 2),
                         phoneNumber.Substring(9, 2));
                 }
-                else
-                {
-                    _phoneNumber = "+" + phoneNumber;
-                }
+                _phoneNumber = "+" + phoneNumber;
             }
         }
 
