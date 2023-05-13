@@ -178,6 +178,23 @@ namespace ContactsApp.Model.UnitTests
         }
 
         [Test]
+        [Description("Присвоение неправильного PhoneNumber, начинающегося не с '7', '+7, '8'")]
+        public void ValidatePhoneNumber_CheckValueStartsWithSevenOrEight_ThrowsException()
+        {
+            // Arrange
+            var validator = new ContactValidator();
+            var wrongPhoneNumber = "99502717571";
+            var expected = false;
+
+            // Act
+            var actual = validator.ValidatePhoneNumber(wrongPhoneNumber, out _);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Должно возникать исключение, " +
+                "если PhoneNumber начинается не с '7', '+7', '8'");
+        }
+
+        [Test]
         [Description("Позитивный тест валидатора DateOfBirth, если значение не было введено " +
             "и равно DateTime(0001, 01, 01)")]
         public void ValidateDateOfBirth_CheckDefaultValue_ReturnsTrue()
