@@ -93,26 +93,11 @@
                     throw new ArgumentException(errorMessage);
                 }
                 string phoneNumber = new string(value.Where(char.IsDigit).ToArray());
-                if (phoneNumber.Length == 10)
-                {
-                    _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
-                        phoneNumber.Substring(0, 3),
-                        phoneNumber.Substring(3, 3),
-                        phoneNumber.Substring(6, 2),
-                        phoneNumber.Substring(8, 2));
-                }
-                else if (phoneNumber.Length == 11)
-                {
-                    _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
+                _phoneNumber = string.Format("+7 ({0}) {1}-{2}-{3}",
                         phoneNumber.Substring(1, 3),
                         phoneNumber.Substring(4, 3),
                         phoneNumber.Substring(7, 2),
                         phoneNumber.Substring(9, 2));
-                }
-                else
-                {
-                    _phoneNumber = "+" + phoneNumber;
-                }
             }
         }
 

@@ -7,7 +7,7 @@
     /// <summary>
     /// Описывает валидатор контакта телефонной книги.
     /// </summary>
-    internal class ContactValidator
+    public class ContactValidator
     {
         /// <summary>
         /// Время 01.01.0001.
@@ -94,13 +94,10 @@
             {
                 return true;
             }
-            else
-            {
-                errorMessage = $"Invalid phone number format '{phoneNumber}'. " +
+            errorMessage = $"Invalid phone number format '{phoneNumber}'. " +
                     $"The format should be '7XXXXXXXXXX', '+7XXXXXXXXXX', " +
                     $"or '+7 (XXX) XXX-XX-XX'.";
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
