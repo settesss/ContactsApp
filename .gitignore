@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Compiled installers
 .install/Output/
+/install/Output
