@@ -350,4 +350,4 @@ MigrationBackup/
 .ionide/
 
 # Compiled installers
-ContactsApp/install/Output/
+.install/Output/
