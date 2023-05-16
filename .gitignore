@@ -350,5 +350,4 @@ MigrationBackup/
 .ionide/
 
 # Compiled installers
-.install/Output/
 /install/Output
