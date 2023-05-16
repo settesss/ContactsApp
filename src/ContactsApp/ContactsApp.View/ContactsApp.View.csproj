@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icons8-bookmark-48.ico</ApplicationIcon>
+    <ApplicationIcon>ContactsApp_96x96.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -128,7 +128,7 @@
     <None Include="Resources\add_photo_32x32_gray.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons8-bookmark-48.ico" />
+    <Content Include="ContactsApp_96x96.ico" />
     <None Include="Resources\remove_contact_32x32.png" />
     <None Include="Resources\info_48x48.png" />
     <None Include="Resources\edit_contact_32x32.png" />
