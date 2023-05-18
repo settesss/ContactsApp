@@ -6,6 +6,8 @@
 #define IconBmp "WizardImage.bmp"
 #define SmallIconBmp "WizardSmallImage.bmp"
 
+#define MyDateTimeString GetDateTimeString('dd/mm/yyyy', '.', '')
+
 
 [Setup]
 AppId = {{461C70DA-DBA3-4FF9-A290-E960EBFA5A76}
@@ -13,14 +15,14 @@ AppId = {{461C70DA-DBA3-4FF9-A290-E960EBFA5A76}
 AppName = {#Name}
 AppVerName = v. 1.0.0
 
-DefaultDirName = "{pf}\{#Name}"
-DefaultGroupName = {#Name} Example
+DefaultDirName = "{pf}\Manakov\{#Name}"
+DefaultGroupName = {#Name}
 
 OutputDir = "Output"
-OutputBaseFilename = {#Name} setup
+OutputBaseFilename = {#Name}-{#MyDateTimeString}
 
 DirExistsWarning = auto
-LicenseFile = "License.txt"
+LicenseFile = "..\LICENSE.md"
 SetupIconFile = "..\src\ContactsApp\ContactsApp.View\{#IconIco}"
 WizardImageFile = "Images\{#IconBmp}"
 WizardSmallImageFile = "Images\{#SmallIconBmp}"
@@ -38,8 +40,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\ContactsApp.View.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\*"; DestDir: "{app}"; Excludes: "*.pdb, *.log, *.tmp"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#Name}"; FileName: "{app}\ContactsApp.View.exe"
+Name: "{group}\Uninstall {#Name}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\{#Name}"; Filename: "{app}\ContactsApp.View.exe"; Tasks: desktopicon
