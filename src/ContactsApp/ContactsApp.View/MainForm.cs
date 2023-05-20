@@ -63,8 +63,9 @@
         /// <returns></returns>
         private ListBox UpdateListBox()
         {
-            _currentContacts.Sort(_project.SortContactsByFullName);
             UsersListBox.Items.Clear();
+            _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+            _currentContacts.Sort(_project.SortContactsByFullName);
             UsersListBox.Items.AddRange(_currentContacts.Select(c => c.FullName).ToArray());
             if (NotificationPanel.Visible == true)
             {
@@ -124,6 +125,7 @@
                 _project.Contacts[contactIndex] = editedContact;
                 UsersListBox.Items[index] = editedContact.FullName;
                 _currentContacts[index] = editedContact;
+                UpdateListBox();
             }
         }
 
