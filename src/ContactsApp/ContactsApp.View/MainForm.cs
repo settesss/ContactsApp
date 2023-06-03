@@ -65,7 +65,7 @@
         {
             UsersListBox.Items.Clear();
             _currentContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
-            _currentContacts.Sort(_project.SortContactsByFullName);
+            _currentContacts = _project.SortContactsByFullName(_currentContacts);
             UsersListBox.Items.AddRange(_currentContacts.Select(c => c.FullName).ToArray());
             if (NotificationPanel.Visible == true)
             {

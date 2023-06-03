@@ -18,12 +18,12 @@
         /// Сортирует контакты по полному имени и возвращает 
         /// расположение одного контакта относительно другого.
         /// </summary>
-        /// <param name="firstContact"></param>
-        /// <param name="secondContact"></param>
+        /// <param name="contacts"></param>
         /// <returns></returns>
-        public int SortContactsByFullName(Contact firstContact, Contact secondContact)
+        public List<Contact> SortContactsByFullName(List<Contact> contacts)
         {
-            return firstContact.FullName.CompareTo(secondContact.FullName);
+            var sortedContacts = contacts.OrderBy(c => c.FullName).ToList();
+            return sortedContacts;
         }
 
         /// <summary>
